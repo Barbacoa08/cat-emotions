@@ -11,7 +11,7 @@ describe("InternalLink Component", () => {
       </BrowserRouter>
     );
 
-    const rootElement = screen.getAllByRole("heading");
-    expect(rootElement).toHaveLength(2);
+    const headings = screen.getAllByRole("heading");
+    expect(headings.length).toBeGreaterThanOrEqual(2);
   });
 });
