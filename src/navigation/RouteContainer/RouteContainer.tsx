@@ -12,6 +12,7 @@ export const routes = {
 export const RouteContainer = () => {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path={routes.home} element={<Home />} />
 
       <Route path={routes.emotionSelect} element={<EmotionSelect />} />
