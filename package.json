@@ -1,7 +1,9 @@
 {
   "name": "cat-emotions",
   "version": "0.1.0",
-  "private": true,
+  "author": "Barbacoa08",
+  "license": "MIT",
+  "repository": "https://github.com/Barbacoa08/cat-emotions",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
