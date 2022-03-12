@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dd47536c-4b25-43a8-a996-eafc24f52433/deploy-status)](https://app.netlify.com/sites/cat-emotions/deploys)
 ![github workflow status](https://github.com/Barbacoa08/cat-emotions/actions/workflows/run-yarn.yml/badge.svg)
 
 ![Coverage lines](./badges/badge-lines.svg)
