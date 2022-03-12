@@ -1,17 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
-import { App } from "./";
+import { InternalLink } from ".";
 
 describe("InternalLink Component", () => {
   it("fully renders without exploding", () => {
     render(
       <BrowserRouter>
-        <App />
+        <InternalLink to="/">Home</InternalLink>
       </BrowserRouter>
     );
 
-    const rootElement = screen.getByRole("heading");
-    expect(rootElement).toBeInTheDocument();
+    const rootElement = screen.getByRole("link");
+    expect(rootElement).toBeTruthy();
   });
 });
