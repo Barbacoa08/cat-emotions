@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint ./src",
-    "clean": "rm -rf coverage dist jsdocs storybook-static package *.tgz",
+    "clean": "rm -rf coverage build jsdocs storybook-static package *.tgz",
     "test": "react-scripts test --watchAll=false",
     "test:coverage": "react-scripts test --coverage=true --watchAll=false",
     "test:badges": "yarn test:coverage && jest-coverage-badges --output ./badges",
