@@ -1,3 +1,10 @@
+![Coverage lines](./badges/badge-lines.svg)
+![Coverage functions](./badges/badge-functions.svg)
+![Coverage branches](./badges/badge-branches.svg)
+![Coverage statements](./badges/badge-statements.svg)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 # Cat Emotions
 A tracker for your emotional journey via cat pics!
 
