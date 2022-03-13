@@ -6,7 +6,7 @@ describe("EmotionSelect Component", () => {
   it("fully renders without exploding", () => {
     render(<EmotionSelect />);
 
-    const rootElement = screen.getByTestId("EmotionSelect-root");
-    expect(rootElement).toBeTruthy();
+    const headings = screen.getAllByRole("heading");
+    expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 });

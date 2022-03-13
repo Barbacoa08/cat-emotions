@@ -5,9 +5,13 @@ import cuddly from "images/cuddly.jpg";
 
 describe("ExpandableImage Component", () => {
   it("fully renders without exploding", () => {
-    render(<ExpandableImage src={cuddly} alt="example alt" />);
+    const altText = "example alt text";
+    render(<ExpandableImage src={cuddly} alt={altText} />);
 
-    const rootElement = screen.getByTestId("ExpandableImage-root");
-    expect(rootElement).toBeInTheDocument();
+    const images = screen.getAllByRole("img");
+    expect(images).toHaveLength(1);
+
+    const imgByAltText = screen.getByAltText(altText);
+    expect(imgByAltText).toBeInTheDocument();
   });
 });
