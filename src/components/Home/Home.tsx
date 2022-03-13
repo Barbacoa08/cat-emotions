@@ -1,7 +1,11 @@
+import { Box, Heading, Text } from "@chakra-ui/react";
+
 export const Home = () => {
   return (
-    <div data-testid="Home-root">
-      <h2>Home</h2>
-    </div>
+    <Box data-testid="Home-root">
+      <Heading>Cat Emotions</Heading>
+
+      <Text>A tracker for your emotional journey via cat pics</Text>
+    </Box>
   );
 };

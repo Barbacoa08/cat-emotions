@@ -12,6 +12,6 @@ describe("InternalLink Component", () => {
     );
 
     const headings = screen.getAllByRole("heading");
-    expect(headings.length).toBeGreaterThanOrEqual(2);
+    expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 });
