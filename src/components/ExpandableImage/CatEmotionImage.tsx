@@ -11,7 +11,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-export const ExpandableImage = ({ alt, src }: { src: string; alt: string }) => {
+export const CatEmotionImage = ({ alt, src }: { src: string; alt: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
@@ -57,7 +57,8 @@ export const ExpandableImage = ({ alt, src }: { src: string; alt: string }) => {
                 toast({
                   title: "Saved!",
                   // TODO: stop lying, make it happen!
-                  description: "Your Cat Emotion has been saved to your Cat Emotion History!",
+                  description:
+                    "Your Cat Emotion has been saved to your Cat Emotion History!",
                   status: "success",
                   duration: 9000,
                   isClosable: true,

@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react";
 
-import { ExpandableImage } from ".";
 import cuddly from "images/cuddly.jpg";
 
-describe("ExpandableImage Component", () => {
+import { CatEmotionImage } from ".";
+
+describe("CatEmotionImage Component", () => {
   it("fully renders without exploding", () => {
     const altText = "example alt text";
-    render(<ExpandableImage src={cuddly} alt={altText} />);
+    render(<CatEmotionImage src={cuddly} alt={altText} />);
 
     const images = screen.getAllByRole("img");
     expect(images).toHaveLength(1);

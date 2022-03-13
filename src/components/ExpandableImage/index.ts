@@ -1,1 +1,1 @@
-export * from "./ExpandableImage";
+export * from "./CatEmotionImage";
