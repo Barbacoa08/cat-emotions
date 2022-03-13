@@ -10,6 +10,7 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
+import { addEmotion } from "graphql";
 
 export const CatEmotionImage = ({ alt, src }: { src: string; alt: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -55,6 +56,17 @@ export const CatEmotionImage = ({ alt, src }: { src: string; alt: string }) => {
               variant="solid"
               onClick={() => {
                 onClose();
+
+                // TEMP
+                addEmotion({
+                  user: "barbi",
+                  image: src,
+                  emotions: "happy",
+                }).then((r) => {
+                  console.log("addEmotion r", r);
+                  console.log("datetime", new Date(r.returning[0].datetime));
+                });
+                // TEMP
 
                 // TODO: if user is signed in:
                 // toast({
