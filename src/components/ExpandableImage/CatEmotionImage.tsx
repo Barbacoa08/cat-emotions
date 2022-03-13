@@ -27,6 +27,7 @@ export const CatEmotionImage = ({ alt, src }: { src: string; alt: string }) => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
+
         <ModalContent>
           <Image
             alt={alt}
