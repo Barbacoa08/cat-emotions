@@ -55,12 +55,22 @@ export const CatEmotionImage = ({ alt, src }: { src: string; alt: string }) => {
               variant="solid"
               onClick={() => {
                 onClose();
+
+                // TODO: if user is signed in:
+                // toast({
+                //   title: "Saved!",
+                //   description:
+                //     "Your Cat Emotion has been saved to your Cat Emotion History!",
+                //   status: "success",
+                //   duration: 9000,
+                //   isClosable: true,
+                // });
+                // else
                 toast({
-                  title: "Saved!",
-                  // TODO: stop lying, make it happen!
+                  title: "Ope! You're not signed in doncha know!",
                   description:
-                    "Your Cat Emotion has been saved to your Cat Emotion History!",
-                  status: "success",
+                    "Sorry about that, but you'll need to sign in to save your Cat Emotion.",
+                  status: "warning",
                   duration: 9000,
                   isClosable: true,
                 });
