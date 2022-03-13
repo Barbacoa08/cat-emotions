@@ -3,12 +3,14 @@ import { Image } from "@chakra-ui/image";
 import {
   Box,
   Button,
+  Collapse,
   Flex,
   IconButton,
   Link,
   Popover,
   PopoverTrigger,
   Stack,
+  Text,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -88,6 +90,10 @@ export const TopNav = () => {
           </Button>
         </Stack>
       </Flex>
+
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav />
+      </Collapse>
     </Box>
   );
 };
@@ -120,6 +126,46 @@ const DesktopNav = () => {
           </Popover>
         </Box>
       ))}
+    </Stack>
+  );
+};
+
+const MobileNav = () => {
+  return (
+    <Stack
+      bg={useColorModeValue("white", "gray.800")}
+      p={4}
+      display={{ md: "none" }}
+    >
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileNavItem = ({ label, to }: NavItem) => {
+  const { onToggle } = useDisclosure();
+
+  return (
+    <Stack spacing={4} onClick={onToggle}>
+      <Flex
+        py={2}
+        as={Link}
+        href={to}
+        justify={"space-between"}
+        align={"center"}
+        _hover={{
+          textDecoration: "none",
+        }}
+      >
+        <Text
+          fontWeight={600}
+          color={useColorModeValue("gray.600", "gray.200")}
+        >
+          {label}
+        </Text>
+      </Flex>
     </Stack>
   );
 };
