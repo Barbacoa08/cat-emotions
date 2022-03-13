@@ -44,7 +44,7 @@ export const TopNav = () => {
           <IconButton
             onClick={onToggle}
             icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} /> // TODO: add unit test here
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
