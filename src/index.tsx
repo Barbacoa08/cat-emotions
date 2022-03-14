@@ -1,4 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import netlifyIdentity from "netlify-identity-widget";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -7,6 +8,9 @@ import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
+
+(window as any).netlifyIdentity = netlifyIdentity;
+netlifyIdentity.init();
 
 ReactDOM.render(
   <StrictMode>
