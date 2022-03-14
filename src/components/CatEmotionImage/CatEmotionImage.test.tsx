@@ -15,4 +15,6 @@ describe("CatEmotionImage Component", () => {
     const imgByAltText = screen.getByAltText(altText);
     expect(imgByAltText).toBeInTheDocument();
   });
+
+  // TODO: mock `netlifyIdentity.currentUser()` from 'netlify-identity-widget'
 });
