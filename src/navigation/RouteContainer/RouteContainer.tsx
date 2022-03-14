@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
-import { EmotionSelect, Home, SignIn } from "components";
+import { CatHistory, EmotionSelect, Home } from "components";
 
 export const routes = {
   home: "/home",
 
   emotionSelect: "/emotion-select",
-  signIn: "/sign-in",
+  history: "/history",
 };
 
 export const RouteContainer = () => {
@@ -16,7 +16,7 @@ export const RouteContainer = () => {
       <Route path={routes.home} element={<Home />} />
 
       <Route path={routes.emotionSelect} element={<EmotionSelect />} />
-      <Route path={routes.signIn} element={<SignIn />} />
+      <Route path={routes.history} element={<CatHistory />} />
 
       <Route
         path="*"

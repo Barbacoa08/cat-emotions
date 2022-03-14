@@ -2,7 +2,6 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/image";
 import {
   Box,
-  Button,
   Collapse,
   Flex,
   IconButton,
@@ -19,9 +18,9 @@ import { NavLink } from "react-router-dom";
 import { routes } from "navigation";
 
 import cat from "./icons8-pixel-cat-30.png";
+import { AuthButton } from "components/AuthButton";
 
 // treasure hunted from: https://chakra-templates.dev/navigation/navbar
-
 export const TopNav = () => {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -60,35 +59,7 @@ export const TopNav = () => {
           </Flex>
         </Flex>
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-          <Button
-            as={NavLink}
-            to={routes.signIn}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            padding={3}
-          >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up (TODO)
-          </Button>
-        </Stack>
+        <AuthButton />
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -186,6 +157,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Cat History",
-    to: "/history", // TODO: add component
+    to: routes.history,
   },
 ];

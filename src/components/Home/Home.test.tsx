@@ -6,7 +6,7 @@ describe("Home Component", () => {
   it("fully renders without exploding", () => {
     render(<Home />);
 
-    const rootElement = screen.getByTestId("Home-root");
-    expect(rootElement).toBeTruthy();
+    const rootElement = screen.getByText("Cat Emotions");
+    expect(rootElement).toBeInTheDocument();
   });
 });
