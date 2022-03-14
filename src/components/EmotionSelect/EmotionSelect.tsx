@@ -1,6 +1,6 @@
 import { Box, Grid, GridItem, Heading } from "@chakra-ui/react";
 
-import { CatEmotionImage } from "components/ExpandableImage";
+import { CatEmotionImage } from "components/CatEmotionImage";
 import atPeace from "images/at-peace.jpg";
 import beingEaten from "images/being-eaten.jpg";
 import aggravated from "images/cat-aggravated.jpg";
