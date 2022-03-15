@@ -7,13 +7,19 @@ import { CatEmotionImage } from ".";
 describe("CatEmotionImage Component", () => {
   it("fully renders without exploding", () => {
     const altText = "example alt text";
-    render(<CatEmotionImage tags={["example"]} src={cuddly} alt={altText} />);
+    const { container } = render(
+      <CatEmotionImage tags={["example"]} src={cuddly} alt={altText} />
+    );
 
-    const images = screen.getAllByRole("img");
-    expect(images).toHaveLength(1);
+    const button = screen.getAllByRole("button");
+    expect(button).toHaveLength(1);
 
-    const imgByAltText = screen.getByAltText(altText);
-    expect(imgByAltText).toBeInTheDocument();
+    const btnByAltText = screen.getByLabelText(altText);
+    expect(btnByAltText).toBeInTheDocument();
+
+    // eslint-disable-next-line
+    const images = container.querySelector("button img");
+    expect(images).toBeInTheDocument();
   });
 
   // TODO: mock `netlifyIdentity.currentUser()` from 'netlify-identity-widget'

@@ -74,12 +74,12 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             </Text>
 
             <FormControl p={2} isInvalid={selectedTags.length === 0}>
-            <FormLabel>Select with creatable options</FormLabel>
+              <FormLabel>Select with creatable options</FormLabel>
 
-            <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>
-              closeMenuOnSelect={false}
-              isMulti
-              name="emotion tags"
+              <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>
+                closeMenuOnSelect={false}
+                isMulti
+                name="emotion tags"
                 options={allTagOptions}
                 placeholder="Emotional tags"
                 value={selectedTags}
