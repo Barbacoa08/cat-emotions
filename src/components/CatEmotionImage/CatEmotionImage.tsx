@@ -76,6 +76,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             <FormControl p={2} isInvalid={selectedTags.length === 0}>
               <FormLabel>Select with creatable options</FormLabel>
 
+              {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
               <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>
                 closeMenuOnSelect={false}
                 isMulti
