@@ -3,10 +3,6 @@ import { Box, Grid, GridItem, Heading } from "@chakra-ui/react";
 import { CatEmotionImage } from "components/CatEmotionImage";
 import atPeace from "images/at-peace.jpg";
 import beingEaten from "images/being-eaten.jpg";
-import aggravated from "images/cat-aggravated.jpg";
-import annoyed from "images/cat-annoyed.jpg";
-import contentHappy from "images/cat-content-happy.jpg";
-import unimpressed from "images/cat-unimpressed-nonplussed.jpg";
 import cuddly from "images/cuddly.jpg";
 import destructive from "images/destructive-guilty-uncaring.jpg";
 import grumpy from "images/grumpy.jpg";
@@ -37,34 +33,6 @@ export const EmotionSelect = () => {
             tags={["annoyed", "apathetic"]}
             src={beingEaten}
             alt="image of a cat being gently chomped on by a large dog, the cat appears to not care"
-          />
-        </GridItem>
-        <GridItem>
-          <CatEmotionImage
-            tags={["aggravated", "upset"]}
-            src={aggravated}
-            alt="image of a cartoon cat sitting akimbo while staring at you with aggravated eyes"
-          />
-        </GridItem>
-        <GridItem>
-          <CatEmotionImage
-            tags={["annoyed", "frustrated", "irritated"]}
-            src={annoyed}
-            alt="image of a cartoon cat rolling it's eyes and appearing to be annoyed at something that was said"
-          />
-        </GridItem>
-        <GridItem>
-          <CatEmotionImage
-            tags={["happy", "content", "proud"]}
-            src={contentHappy}
-            alt="image of a cat sitting upright looking downward at something with a contented face"
-          />
-        </GridItem>
-        <GridItem>
-          <CatEmotionImage
-            tags={["unimpressed"]}
-            src={unimpressed}
-            alt="image of a cat sitting erect with eyes one quarter closed and an unimpressed face"
           />
         </GridItem>
         <GridItem>
