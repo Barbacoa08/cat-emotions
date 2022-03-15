@@ -35,6 +35,7 @@ export const AuthButton = () => {
     });
   };
 
+  // BUG: not updating properly. need to setup state for the `user`... globally?
   return netlifyAuth.isAuthenticated ? (
     <Button
       display={{ base: "none", md: "inline-flex" }}

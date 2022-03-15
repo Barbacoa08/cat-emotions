@@ -92,7 +92,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                   });
 
                   addEmotion({
-                    user: "barbi",
+                    user: user.email,
                     image: src,
                     emotions: tags?.join(","),
                   }).then((r) => {
