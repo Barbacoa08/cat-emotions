@@ -62,5 +62,10 @@ describe("CatEmotionImage Component", () => {
 
     expect(closeBtn).not.toBeVisible();
   });
+
+  // it("allows the selection of other tags", () => {});
+
   // TODO: mock `netlifyIdentity.currentUser()` from 'netlify-identity-widget'
+  // it("returns an 'error' toast if user is not signed in and tries to submit an emotion", () => {});
+  // it("returns an 'info' and then 'success' toast if user is signed in and submits an emotion", () => {});
 });
