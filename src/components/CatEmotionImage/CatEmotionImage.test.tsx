@@ -7,7 +7,7 @@ import { CatEmotionImage } from ".";
 
 describe("CatEmotionImage Component", () => {
   const altText = "example alt text";
-  const exampleTags = ["example"];
+  const exampleTags = ["mischievous"];
 
   let container: HTMLElement;
   const setup = () => {
@@ -51,5 +51,16 @@ describe("CatEmotionImage Component", () => {
     expect(screen.getByText(errorText)).toBeInTheDocument();
   });
 
+  it("closes the modal when the 'Nah' button is clicked", () => {
+    setup();
+
+    const catBtn = screen.getByRole("button");
+    userEvent.click(catBtn);
+
+    const closeBtn = screen.getByText("Nah");
+    userEvent.click(closeBtn);
+
+    expect(closeBtn).not.toBeVisible();
+  });
   // TODO: mock `netlifyIdentity.currentUser()` from 'netlify-identity-widget'
 });
