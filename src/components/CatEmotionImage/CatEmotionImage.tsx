@@ -2,6 +2,8 @@ import {
   Badge,
   Box,
   Button,
+  FormControl,
+  FormLabel,
   IconButton,
   Image,
   Modal,
@@ -13,14 +15,21 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
+import { CreatableSelect, GroupBase, OptionBase } from "chakra-react-select";
 import netlifyIdentity from "netlify-identity-widget";
 
 import { addEmotion } from "graphql";
+import { allTags } from "images";
 
 export interface CatEmotionImageProps {
   alt: string;
   src: string;
   tags: string[];
+}
+
+interface EmotionOption extends OptionBase {
+  label: string;
+  value: string;
 }
 
 export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
@@ -59,6 +68,24 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               <Badge key={i}>{tag}</Badge>
             ))}
           </Stack>
+
+          <FormControl p={4}>
+            <FormLabel>Select with creatable options</FormLabel>
+            <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>
+              isMulti
+              name="emotion tags"
+              options={allTags.map((tag) => ({
+                label: tag,
+                value: tag,
+              }))}
+              defaultValue={tags.map((tag) => ({
+                label: tag,
+                value: tag,
+              }))}
+              placeholder="You must select at least one tag"
+              closeMenuOnSelect={false}
+            />
+          </FormControl>
 
           <ModalFooter>
             <Text align="center" padding={2}>

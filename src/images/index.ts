@@ -63,3 +63,7 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat with both paws up and looking very surprised at the camera",
   },
 ];
+
+export const allTags = Array.from(
+  new Set<string>(allCatImages.map(({ tags }) => tags).flat())
+);
