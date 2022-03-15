@@ -1,21 +1,26 @@
 import {
-  Badge,
   Box,
   Button,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
   IconButton,
   Image,
   Modal,
+  ModalBody,
   ModalContent,
   ModalFooter,
   ModalOverlay,
-  Stack,
   Text,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
+import { CreatableSelect, GroupBase, OptionBase } from "chakra-react-select";
 import netlifyIdentity from "netlify-identity-widget";
+import { useMemo, useState } from "react";
 
 import { addEmotion } from "graphql";
+import { allTags } from "images";
 
 export interface CatEmotionImageProps {
   alt: string;
@@ -23,9 +28,22 @@ export interface CatEmotionImageProps {
   tags: string[];
 }
 
+interface EmotionOption extends OptionBase {
+  label: string;
+  value: string;
+}
+
+const stringToOption = (s: string): EmotionOption => ({
+  label: s,
+  value: s,
+});
+
 export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
+
+  const allTagOptions = useMemo(() => allTags.map(stringToOption), []);
+  const [selectedTags, setSelectedTags] = useState(tags.map(stringToOption));
 
   return (
     <Box>
@@ -40,25 +58,44 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
 
-        <ModalContent>
-          <Image
-            alt={alt}
-            fallbackSrc="https://via.placeholder.com/100"
-            objectFit="contain"
-            src={src}
-            borderRadius={10}
-            margin="auto"
-          />
+        <ModalContent title="Cat confirmation and emotional tag selection">
+          <ModalBody>
+            <Image
+              alt={alt}
+              fallbackSrc="https://via.placeholder.com/100"
+              objectFit="contain"
+              src={src}
+              borderRadius={10}
+              margin="auto"
+            />
 
-          <Text align="center" padding={2}>
-            {alt}
-          </Text>
+            <Text align="center" padding={2}>
+              {alt}
+            </Text>
 
-          <Stack direction="row">
-            {tags.map((tag, i) => (
-              <Badge key={i}>{tag}</Badge>
-            ))}
-          </Stack>
+            <FormControl p={2} isInvalid={selectedTags.length === 0}>
+              <FormLabel>Select with creatable options</FormLabel>
+
+              {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
+              <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>
+                closeMenuOnSelect={false}
+                isMulti
+                name="emotion tags"
+                options={allTagOptions}
+                placeholder="Emotional tags"
+                value={selectedTags}
+                onChange={(newSelected) =>
+                  setSelectedTags(
+                    newSelected.map((o) => stringToOption(o.value))
+                  )
+                }
+              />
+
+              <FormErrorMessage>
+                You must select at least one tag
+              </FormErrorMessage>
+            </FormControl>
+          </ModalBody>
 
           <ModalFooter>
             <Text align="center" padding={2}>
@@ -70,6 +107,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             </Button>
 
             <Button
+              disabled={selectedTags.length === 0}
               variant="solid"
               onClick={() => {
                 onClose();
@@ -95,10 +133,8 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                   addEmotion({
                     user: user.email,
                     image: src,
-                    emotions: tags?.join(","),
-                  }).then((r) => {
-                    console.log("addEmotion r", r);
-                    console.log("datetime", new Date(r.returning[0].datetime));
+                    emotions: selectedTags?.join(","),
+                  }).then(() => {
                     toast({
                       title: "Saved!",
                       description:
