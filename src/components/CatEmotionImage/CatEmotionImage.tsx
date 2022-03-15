@@ -2,6 +2,7 @@ import {
   Badge,
   Box,
   Button,
+  IconButton,
   Image,
   Modal,
   ModalContent,
@@ -28,13 +29,12 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
 
   return (
     <Box>
-      <Image
-        alt={alt}
-        borderRadius={10}
+      <IconButton
+        aria-label={alt}
         cursor="zoom-in"
-        maxHeight={400}
+        height="auto"
         onClick={onOpen}
-        src={src}
+        icon={<Image borderRadius={10} maxHeight={400} src={src} />}
       />
 
       <Modal isOpen={isOpen} onClose={onClose}>
