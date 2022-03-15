@@ -16,7 +16,7 @@ import netlifyIdentity from "netlify-identity-widget";
 
 import { addEmotion } from "graphql";
 
-interface CatEmotionImageProps {
+export interface CatEmotionImageProps {
   alt: string;
   src: string;
   tags: string[];
@@ -32,6 +32,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
         alt={alt}
         borderRadius={10}
         cursor="zoom-in"
+        maxHeight={400}
         onClick={onOpen}
         src={src}
       />
