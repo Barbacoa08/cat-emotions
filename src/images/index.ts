@@ -8,9 +8,11 @@ import destructive from "./destructive-guilty-uncaring.jpg";
 import grumpy from "./grumpy.jpg";
 import happy from "./happy.jpg";
 import mischievous from "./mischievous.jpg";
+import sick from "./sick.jpg";
+import sickGrumpy from "./sick-grumpy.jpg";
 import sleepy from "./sleepy.jpg";
-import surprisedGuilty from "./surprised-guilty.jpg";
 import surprised from "./surprised.jpg";
+import surprisedGuilty from "./surprised-guilty.jpg";
 import tense from "./tense.jpg";
 
 export const allCatImages: CatEmotionImageProps[] = [
@@ -53,6 +55,16 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: mischievous,
     tags: ["mischievous"],
     alt: "image of a cat with a paw up and a mischievous smirk on it's face",
+  },
+  {
+    src: sick,
+    tags: ["sick", "pain"],
+    alt: "image of a cat sleeping on it's back with a paw on it's face, the other paw holding a thermometer, and a cold compress on it's head",
+  },
+  {
+    src: sickGrumpy,
+    tags: ["sick", "grumpy", "sleepy"],
+    alt: "image of a grumpy cat sitting up with a cold compress on it's head, a thermometer in it's mouth, and it's tail wrapped around some cough syrup ",
   },
   {
     src: sleepy,
