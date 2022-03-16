@@ -11,3 +11,17 @@ export type AddEmotionResult = {
     user: string;
   }[];
 };
+
+export type GetUserHistoryResult = {
+  datetime: Date;
+  emotions: string[];
+  image: string;
+  user: string;
+};
+
+export type GetUserHistoryResultApiResult = {
+  datetime: string;
+  emotions: string;
+  image: string;
+  user: string;
+};
