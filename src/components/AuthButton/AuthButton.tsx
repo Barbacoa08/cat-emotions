@@ -39,7 +39,7 @@ export const AuthButton = () => {
   return (
     <Button
       leftIcon={authenticated ? <ArrowBackIcon /> : undefined}
-      rightIcon={authenticated ? <ArrowForwardIcon /> : undefined}
+      rightIcon={!authenticated ? <ArrowForwardIcon /> : undefined}
       _hover={{
         bg: buttonHighlightColor,
       }}
