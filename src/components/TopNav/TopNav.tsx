@@ -1,4 +1,4 @@
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/image";
 import {
   Box,
@@ -10,19 +10,22 @@ import {
   PopoverTrigger,
   Stack,
   Text,
+  Tooltip,
+  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
+import { AuthButton } from "components/AuthButton";
 import { routes } from "navigation";
 
 import cat from "./icons8-pixel-cat-30.png";
-import { AuthButton } from "components/AuthButton";
 
 // treasure hunted from: https://chakra-templates.dev/navigation/navbar
 export const TopNav = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Box>
@@ -59,7 +62,22 @@ export const TopNav = () => {
           </Flex>
         </Flex>
 
-        <AuthButton />
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          <Tooltip label="Toggle theme" closeOnClick>
+            <IconButton
+              aria-label={`Toggle theme, current theme is ${colorMode}`}
+              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              onClick={toggleColorMode}
+            />
+          </Tooltip>
+
+          <AuthButton />
+        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
