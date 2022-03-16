@@ -52,8 +52,8 @@ export const CatHistory = () => {
   const user = netlifyIdentity.currentUser();
 
   return (
-    <Box>
-      <Heading>Cat History</Heading>
+    <Box role="main">
+      <Heading as="h1">Cat History</Heading>
 
       {/** `!user` IS TEMPORARY, DO NOT CHECKIN */}
       {!user ? (
