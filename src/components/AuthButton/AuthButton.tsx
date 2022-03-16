@@ -1,5 +1,5 @@
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
-import { Button, useColorModeValue } from "@chakra-ui/react";
+import { Button, useColorModeValue, useToast } from "@chakra-ui/react";
 import netlifyIdentity from "netlify-identity-widget";
 import { useEffect, useGlobal } from "reactn";
 
@@ -8,10 +8,24 @@ export const AuthButton = () => {
   const [authenticated, setAuthenticated] = useGlobal("authenticated");
   const [, setUser] = useGlobal("user");
 
+  const toast = useToast();
+
   useEffect(() => {
-    netlifyIdentity.on("login", (user) => {
+    netlifyIdentity.on("login", (signInUser) => {
+      netlifyIdentity.close();
+
       setAuthenticated(true);
-      setUser(user);
+      setUser(signInUser);
+
+      const name = signInUser?.user_metadata?.full_name || signInUser.email;
+
+      toast({
+        title: "Signed In!",
+        description: `Hello there, ${name}!`,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
 
       // TODO: `useNavigate` to go to... history?
     });
@@ -24,7 +38,7 @@ export const AuthButton = () => {
       netlifyIdentity.off("login");
       netlifyIdentity.off("logout");
     };
-  }, [setAuthenticated, setUser]);
+  }, [setAuthenticated, setUser, toast]);
 
   const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
 
