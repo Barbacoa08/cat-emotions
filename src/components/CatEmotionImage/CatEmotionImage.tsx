@@ -121,14 +121,14 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                     description:
                       "Sorry about that, but you'll need to sign in to save your Cat Emotion.",
                     status: "error",
-                    duration: 9000,
+                    duration: 5000,
                     isClosable: true,
                   });
                 } else {
                   toast({
                     title: "Saving your Cat Emotion!",
                     status: "info",
-                    duration: 5000,
+                    duration: 3000,
                     isClosable: true,
                   });
 
@@ -136,16 +136,27 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                     user: user.email,
                     image: src,
                     emotions: selectedTagOptions.map((o) => o.value).join(","),
-                  }).then(() => {
-                    toast({
-                      title: "Saved!",
-                      description:
-                        "Your Cat Emotion has been saved to your Cat Emotion History!",
-                      status: "success",
-                      duration: 9000,
-                      isClosable: true,
+                  })
+                    .then(() => {
+                      toast({
+                        title: "Saved!",
+                        description:
+                          "Your Cat Emotion has been saved to your Cat Emotion History!",
+                        status: "success",
+                        duration: 3000,
+                        isClosable: true,
+                      });
+                    })
+                    .catch(() => {
+                      toast({
+                        title: "Ope! There was an error on the server!",
+                        description:
+                          "Sorry about that, try reloading the page and trying again",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                      });
                     });
-                  });
                 }
               }}
             >
