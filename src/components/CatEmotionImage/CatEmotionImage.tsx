@@ -43,7 +43,9 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
   const toast = useToast();
 
   const allTagOptions = useMemo(() => allTags.map(stringToOption), []);
-  const [selectedTags, setSelectedTags] = useState(tags.map(stringToOption));
+  const [selectedTagOptions, setSelectedTagOptions] = useState(
+    tags.map(stringToOption)
+  );
 
   return (
     <Box>
@@ -73,7 +75,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               {alt}
             </Text>
 
-            <FormControl p={2} isInvalid={selectedTags.length === 0}>
+            <FormControl p={2} isInvalid={selectedTagOptions.length === 0}>
               <FormLabel>Select with creatable options</FormLabel>
 
               {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
@@ -83,9 +85,9 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                 name="emotion tags"
                 options={allTagOptions}
                 placeholder="Emotional tags"
-                value={selectedTags}
+                value={selectedTagOptions}
                 onChange={(newSelected) =>
-                  setSelectedTags(
+                  setSelectedTagOptions(
                     newSelected.map((o) => stringToOption(o.value))
                   )
                 }
@@ -107,7 +109,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             </Button>
 
             <Button
-              disabled={selectedTags.length === 0}
+              disabled={selectedTagOptions.length === 0}
               variant="solid"
               onClick={() => {
                 onClose();
@@ -133,7 +135,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                   addEmotion({
                     user: user.email,
                     image: src,
-                    emotions: selectedTags?.join(","),
+                    emotions: selectedTagOptions.map((o) => o.value).join(","),
                   }).then(() => {
                     toast({
                       title: "Saved!",
