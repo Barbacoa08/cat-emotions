@@ -29,6 +29,7 @@ export const AuthButton = () => {
 
       // TODO: `useNavigate` to go to... history?
     });
+
     netlifyIdentity.on("logout", () => {
       setAuthenticated(false);
       setUser(undefined);
