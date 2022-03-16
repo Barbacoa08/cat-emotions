@@ -1,4 +1,4 @@
-import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -23,8 +23,6 @@ export const EmotionalRadar = ({ data, dimensions }: EmotionalRadarProps) => {
       <Heading as="h2" id="emotional-radar-chart">
         Emotional Radar
       </Heading>
-
-      <Text>https://recharts.org/en-US/examples/SimpleRadarChart</Text>
 
       <ResponsiveContainer width="100%" height={dimensions}>
         <RadarChart data={data}>
