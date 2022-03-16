@@ -15,17 +15,17 @@ export const AuthButton = () => {
   const netlifyAuth = useMemo(() => {
     return {
       authenticate(callback: (user?: User) => void) {
-        setAuthenticated(true);
         netlifyIdentity.open();
         netlifyIdentity.on("login", (authenticatedUser) => {
+          setAuthenticated(true);
           setUser(authenticatedUser);
           callback(authenticatedUser);
         });
       },
       signout(callback: (authenticatedUser?: User) => void) {
-        setAuthenticated(false);
         netlifyIdentity.logout();
         netlifyIdentity.on("logout", () => {
+          setAuthenticated(false);
           setUser(undefined);
           callback();
         });
