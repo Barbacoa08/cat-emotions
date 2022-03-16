@@ -2,15 +2,19 @@ import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { Button, useColorModeValue } from "@chakra-ui/react";
 import netlifyIdentity, { User } from "netlify-identity-widget";
 import { useNavigate } from "react-router-dom";
-import { useGlobal, useMemo } from "reactn";
+import { useEffect, useGlobal, useMemo } from "reactn";
 
-// example created from: https://github.com/netlify/netlify-identity-widget/tree/master/example/react
-// and here: https://github.com/netlify/netlify-identity-widget
+// example created from: https://github.com/netlify/netlify-identity-widget
 export const AuthButton = () => {
   const [authenticated, setAuthenticated] = useGlobal("authenticated");
   const [, setUser] = useGlobal("user");
 
   const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
+
+  useEffect(() => {
+    const user = netlifyIdentity.currentUser();
+    console.log("user", user);
+  }, [setAuthenticated, setUser]);
 
   const netlifyAuth = useMemo(() => {
     return {
