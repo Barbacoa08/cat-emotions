@@ -2,7 +2,7 @@ import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { Button, useColorModeValue } from "@chakra-ui/react";
 import netlifyIdentity, { User } from "netlify-identity-widget";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useGlobal, useMemo } from "reactn";
+import { useGlobal, useMemo } from "reactn";
 
 // example created from: https://github.com/netlify/netlify-identity-widget
 export const AuthButton = () => {
@@ -11,26 +11,24 @@ export const AuthButton = () => {
 
   const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
 
-  useEffect(() => {
-    const user = netlifyIdentity.currentUser();
-    console.log("user", user);
-  }, [setAuthenticated, setUser]);
-
   const netlifyAuth = useMemo(() => {
     return {
-      authenticate(callback: (user?: User) => void) {
+      // authenticate(callback: (user?: User) => void) {
+      authenticate() {
         console.log("authenticate window opened");
         netlifyIdentity.open();
-        netlifyIdentity.on("login", (authenticatedUser) => {
-          console.log("User logged in", authenticatedUser);
-          setAuthenticated(true);
-          setUser(authenticatedUser);
-          callback(authenticatedUser);
-        });
+        // netlifyIdentity.on("login", (authenticatedUser) => {
+        //   console.log("User logged in", authenticatedUser);
+        //   setAuthenticated(true);
+        //   setUser(authenticatedUser);
+        //   callback(authenticatedUser);
+        // });
       },
       signout(callback: (authenticatedUser?: User) => void) {
         console.log("User logging out");
-        netlifyIdentity.logout();
+        netlifyIdentity.logout()?.then((e) => {
+          console.log("User logged out (then)", e);
+        });
         netlifyIdentity.on("logout", () => {
           console.log("User logged out");
           setAuthenticated(false);
@@ -53,11 +51,11 @@ export const AuthButton = () => {
       }}
       onClick={() => {
         authenticated
-          ? netlifyAuth.signout(() => navigate("/"))
-          : netlifyAuth.authenticate((user) => {
-              console.log({ user });
-              console.log("user email", user?.email);
-            });
+          ? netlifyAuth.signout(() => {
+              console.log("logout callback before navigate");
+              return navigate("/");
+            })
+          : netlifyAuth.authenticate();
       }}
     >
       {authenticated ? "Sign Out" : "Sign In/Up"}

@@ -1,30 +1,33 @@
+import netlifyIdentity from "netlify-identity-widget";
 import { useEffect, useGlobal } from "reactn";
 
 import { TopNav } from "components";
 import { RouteContainer } from "navigation";
-import { hashValue } from "utils";
 
 import "./App.css";
 
-const localStorageKey = "cat-emotions";
-
 export const App = () => {
-  const [globals, setGlobals] = useGlobal();
+  const [, setAuthenticated] = useGlobal("authenticated");
+  const [, setUser] = useGlobal("user");
 
-  // on init, pull localStorage once-and-only-once
   useEffect(() => {
-    const storedValue = window.localStorage.getItem(localStorageKey);
+    // netlifyIdentity.init();
+    // netlifyIdentity.on("login", (user: User) => {
+    //   setAuthenticated(true);
+    //   setUser(user);
+    // });
+    // netlifyIdentity.on("logout", () => {
+    //   setAuthenticated(false);
+    //   setUser(undefined);
+    // });
 
-    if (storedValue) {
-      setGlobals(JSON.parse(storedValue));
+    const user = netlifyIdentity.currentUser();
+
+    if (user) {
+      setAuthenticated(true);
+      setUser(user);
     }
-  }, [setGlobals]);
-
-  // update localStorage on every reactn update
-  useEffect(() => {
-    window.localStorage.setItem(localStorageKey, JSON.stringify(globals));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hashValue({ ...globals })]); // gotta spread because the attributes are getters
+  }, [setAuthenticated, setUser]);
 
   return (
     <div className="app">
