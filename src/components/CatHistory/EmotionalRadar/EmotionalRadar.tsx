@@ -16,26 +16,24 @@ interface EmotionalRadarProps {
 export const EmotionalRadar = ({ data, dimensions }: EmotionalRadarProps) => {
   return (
     <Box as="section">
-      <Heading as="h2">Emotional Radar</Heading>
+      <Heading as="h2" id="emotional-radar-chart">
+        Emotional Radar
+      </Heading>
 
       <Text>https://recharts.org/en-US/examples/SimpleRadarChart</Text>
 
       <ResponsiveContainer width="100%" height={dimensions}>
-        <RadarChart
-          // cx={300}
-          // cy={250}
-          // outerRadius={150}
-          data={data}
-        >
+        <RadarChart data={data}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
+          <PolarAngleAxis dataKey="polarAngleAxisDataKey" />
           <PolarRadiusAxis />
           <Radar
-            name="Emotions"
-            dataKey="A"
-            stroke="#8884d8"
+            aria-describedby="emotion-radar-chart"
+            dataKey="radarDataKey"
             fill="#8884d8"
             fillOpacity={0.6}
+            name="Emotions"
+            stroke="#8884d8"
           />
         </RadarChart>
       </ResponsiveContainer>
