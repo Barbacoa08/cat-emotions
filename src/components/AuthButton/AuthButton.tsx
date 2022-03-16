@@ -1,36 +1,33 @@
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { Button, useColorModeValue } from "@chakra-ui/react";
-import netlifyIdentity, { User } from "netlify-identity-widget";
-// import { useNavigate } from "react-router-dom";
-import { useGlobal, useMemo } from "reactn";
+import netlifyIdentity from "netlify-identity-widget";
+import { useEffect, useGlobal } from "reactn";
 
 // example created from: https://github.com/netlify/netlify-identity-widget
 export const AuthButton = () => {
   const [authenticated, setAuthenticated] = useGlobal("authenticated");
   const [, setUser] = useGlobal("user");
 
-  const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
+  useEffect(() => {
+    netlifyIdentity.on("login", (user) => {
+      setAuthenticated(true);
+      setUser(user);
 
-  const netlifyAuth = useMemo(() => {
-    return {
-      signout(callback: (authenticatedUser?: User) => void) {
-        console.log("User logging out"); // works, 1
-        netlifyIdentity.logout()?.then((e) => {
-          console.log("User logged out (then)", e); // works, 4
-        });
-        netlifyIdentity.on("logout", () => {
-          console.log("User logged out"); // works, 2
-          setAuthenticated(false);
-          setUser(undefined);
-          callback();
-        });
-      },
+      // TODO: `useNavigate` to go to... history?
+    });
+    netlifyIdentity.on("logout", () => {
+      setAuthenticated(false);
+      setUser(undefined);
+    });
+
+    return () => {
+      netlifyIdentity.off("login");
+      netlifyIdentity.off("logout");
     };
   }, [setAuthenticated, setUser]);
 
-  // const navigate = useNavigate();
+  const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
 
-  // BUG: not updating properly. need to setup state for the `user`... globally?
   return (
     <Button
       leftIcon={authenticated ? <ArrowBackIcon /> : undefined}
@@ -39,13 +36,7 @@ export const AuthButton = () => {
         bg: buttonHighlightColor,
       }}
       onClick={() => {
-        authenticated
-          ? netlifyAuth.signout(() => {
-              console.log("logout callback before navigate"); // works, 3
-
-              // return navigate("/");
-            })
-          : netlifyIdentity.open();
+        authenticated ? netlifyIdentity.logout() : netlifyIdentity.open();
       }}
     >
       {authenticated ? "Sign Out" : "Sign In/Up"}
