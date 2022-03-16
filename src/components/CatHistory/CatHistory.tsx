@@ -58,7 +58,7 @@ export const CatHistory = () => {
 
       {user && data.length ? (
         <Flex direction="column" alignItems="center">
-          <FormControl marginBottom={5} width="20rem">
+          <FormControl margin={5} width="20rem">
             <FormLabel>Dimensions for the Cat History Graph</FormLabel>
 
             <NumberInput
