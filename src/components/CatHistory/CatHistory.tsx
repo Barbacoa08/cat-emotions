@@ -18,7 +18,7 @@ import { getUserHistory } from "graphql";
 
 import { EmotionalRadar } from "./EmotionalRadar";
 
-interface GraphData {
+export interface GraphData {
   polarAngleAxisDataKey: string;
   radarDataKey: number;
 }

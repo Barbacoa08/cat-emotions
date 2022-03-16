@@ -8,8 +8,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+import { GraphData } from "../CatHistory";
+
 interface EmotionalRadarProps {
-  data: any[];
+  data: GraphData[];
   dimensions: number;
 }
 
