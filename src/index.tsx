@@ -1,8 +1,10 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import netlifyIdentity from "netlify-identity-widget";
-import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { setGlobal, StrictMode } from "reactn";
+
+import { IGlobalState } from "types";
 
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -11,6 +13,12 @@ import "./index.css";
 
 (window as any).netlifyIdentity = netlifyIdentity;
 netlifyIdentity.init();
+
+const globalDefaults: IGlobalState = {
+  authenticated: false,
+  user: undefined,
+};
+setGlobal<IGlobalState>(globalDefaults);
 
 ReactDOM.render(
   <StrictMode>

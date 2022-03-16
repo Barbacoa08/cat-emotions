@@ -1,69 +1,58 @@
-import { Button } from "@chakra-ui/react";
+import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { Button, useColorModeValue } from "@chakra-ui/react";
 import netlifyIdentity, { User } from "netlify-identity-widget";
 import { useNavigate } from "react-router-dom";
+import { useGlobal, useMemo } from "reactn";
 
 // example created from: https://github.com/netlify/netlify-identity-widget/tree/master/example/react
 // and here: https://github.com/netlify/netlify-identity-widget
 export const AuthButton = () => {
-  const netlifyAuth = {
-    isAuthenticated: false,
-    user: null as User | null,
-    authenticate(callback: (user?: User) => void) {
-      this.isAuthenticated = true;
-      netlifyIdentity.open();
-      netlifyIdentity.on("login", (user) => {
-        this.user = user;
-        callback(user);
-      });
-    },
-    signout(callback: (user?: User) => void) {
-      this.isAuthenticated = false;
-      netlifyIdentity.logout();
-      netlifyIdentity.on("logout", () => {
-        this.user = null;
-        callback();
-      });
-    },
-  };
+  const [authenticated, setAuthenticated] = useGlobal("authenticated");
+  const [, setUser] = useGlobal("user");
+
+  const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
+
+  const netlifyAuth = useMemo(() => {
+    return {
+      authenticate(callback: (user?: User) => void) {
+        setAuthenticated(true);
+        netlifyIdentity.open();
+        netlifyIdentity.on("login", (authenticatedUser) => {
+          setUser(authenticatedUser);
+          callback(authenticatedUser);
+        });
+      },
+      signout(callback: (authenticatedUser?: User) => void) {
+        setAuthenticated(false);
+        netlifyIdentity.logout();
+        netlifyIdentity.on("logout", () => {
+          setUser(undefined);
+          callback();
+        });
+      },
+    };
+  }, [setAuthenticated, setUser]);
 
   const navigate = useNavigate();
 
-  const login = () => {
-    netlifyAuth.authenticate((user) => {
-      console.log({ user });
-      console.log("user email", user?.email);
-    });
-  };
-
   // BUG: not updating properly. need to setup state for the `user`... globally?
-  return netlifyAuth.isAuthenticated ? (
+  return (
     <Button
-      display={{ base: "none", md: "inline-flex" }}
-      fontSize={"sm"}
-      fontWeight={600}
-      color={"white"}
+      leftIcon={authenticated ? <ArrowBackIcon /> : undefined}
+      rightIcon={authenticated ? <ArrowForwardIcon /> : undefined}
       _hover={{
-        bg: "pink.300",
+        bg: buttonHighlightColor,
       }}
       onClick={() => {
-        netlifyAuth.signout(() => navigate("/"));
+        authenticated
+          ? netlifyAuth.signout(() => navigate("/"))
+          : netlifyAuth.authenticate((user) => {
+              console.log({ user });
+              console.log("user email", user?.email);
+            });
       }}
     >
-      Sign Out
-    </Button>
-  ) : (
-    <Button
-      display={{ base: "none", md: "inline-flex" }}
-      fontSize={"sm"}
-      fontWeight={600}
-      color={"white"}
-      bg={"pink.400"}
-      _hover={{
-        bg: "pink.300",
-      }}
-      onClick={login}
-    >
-      Sign In/Up
+      {authenticated ? "Sign Out" : "Sign In/Up"}
     </Button>
   );
 };
