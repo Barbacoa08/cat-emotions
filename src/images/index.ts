@@ -1,5 +1,6 @@
 import { CatEmotionImageProps } from "components/CatEmotionImage";
 
+import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
 import cuddly from "./cuddly.jpg";
@@ -10,8 +11,14 @@ import mischievous from "./mischievous.jpg";
 import sleepy from "./sleepy.jpg";
 import surprisedGuilty from "./surprised-guilty.jpg";
 import surprised from "./surprised.jpg";
+import tense from "./tense.jpg";
 
 export const allCatImages: CatEmotionImageProps[] = [
+  {
+    src: anxious,
+    tags: ["anxious", "tense", "scared"],
+    alt: "image of a cat mostly curled up and in a corner, appearing to be staring intently at something off camera",
+  },
   {
     src: atPeace,
     tags: ["happy", "content"],
@@ -61,6 +68,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: surprised,
     tags: ["surprised"],
     alt: "image of a cat with both paws up and looking very surprised at the camera",
+  },
+  {
+    src: tense,
+    tags: ["tense"],
+    alt: "image of a cat that is partially crouched and focused, appearing as if it is ready to pounce",
   },
 ];
 
