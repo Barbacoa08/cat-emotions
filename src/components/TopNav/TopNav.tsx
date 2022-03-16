@@ -28,7 +28,7 @@ export const TopNav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box>
+    <Box role="navigation">
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
