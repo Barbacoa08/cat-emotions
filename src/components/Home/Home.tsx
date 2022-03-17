@@ -2,8 +2,8 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 
 export const Home = () => {
   return (
-    <Box>
-      <Heading>Cat Emotions</Heading>
+    <Box role="main">
+      <Heading as="h1">Cat Emotions</Heading>
 
       <Text>
         Welcome! This is a tracker for your emotional journey via cat pics.
