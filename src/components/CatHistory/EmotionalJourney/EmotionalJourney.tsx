@@ -1,4 +1,5 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
+import { GetUserHistoryResult } from "graphql";
 
 interface GraphData {
   polarAngleAxisDataKey: string;
@@ -6,7 +7,7 @@ interface GraphData {
 }
 
 interface EmotionalJourneyProps {
-  data: GraphData[];
+  data: GetUserHistoryResult[];
   dimensions: number;
 }
 

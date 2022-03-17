@@ -1,5 +1,5 @@
 import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -23,7 +23,7 @@ interface EmotionalRadarProps {
 
 export const EmotionalRadar = ({ data, dimensions }: EmotionalRadarProps) => {
   const [graphData, setGraohData] = useState<GraphData[]>([]);
-  useMemo(() => {
+  useEffect(() => {
     const emotionsCount = data
       .map((dataPoint) => dataPoint.emotions)
       .flat()
