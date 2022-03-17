@@ -11,8 +11,7 @@ import {
   NumberInputStepper,
   Text,
 } from "@chakra-ui/react";
-import netlifyIdentity from "netlify-identity-widget";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useGlobal, useState } from "reactn";
 
 import { getUserHistory } from "graphql";
 
@@ -24,8 +23,7 @@ export interface GraphData {
 }
 
 export const CatHistory = () => {
-  // TODO: make/find a hook for this
-  const user = useMemo(() => netlifyIdentity.currentUser(), []);
+  const [user] = useGlobal("user");
   const [dimensions, setDimensions] = useState(300);
 
   const [data, setData] = useState<GraphData[]>([]);

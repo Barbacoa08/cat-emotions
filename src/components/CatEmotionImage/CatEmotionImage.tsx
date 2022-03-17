@@ -16,8 +16,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { CreatableSelect, GroupBase, OptionBase } from "chakra-react-select";
-import netlifyIdentity from "netlify-identity-widget";
-import { useMemo, useState } from "react";
+import { useGlobal, useMemo, useState } from "reactn";
 
 import { addEmotion } from "graphql";
 import { allTags } from "images";
@@ -39,6 +38,8 @@ const stringToOption = (s: string): EmotionOption => ({
 });
 
 export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
+  const [user] = useGlobal("user");
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
@@ -114,7 +115,6 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               onClick={() => {
                 onClose();
 
-                const user = netlifyIdentity.currentUser();
                 if (!user) {
                   toast({
                     title: "Ope! You're not signed in doncha know!",
