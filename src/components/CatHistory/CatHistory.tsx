@@ -13,40 +13,19 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useGlobal, useState } from "reactn";
 
-import { getUserHistory } from "graphql";
+import { getUserHistory, GetUserHistoryResult } from "graphql";
 
 import { EmotionalRadar } from "./EmotionalRadar";
-
-export interface GraphData {
-  polarAngleAxisDataKey: string;
-  radarDataKey: number;
-}
 
 export const CatHistory = () => {
   const [user] = useGlobal("user");
   const [dimensions, setDimensions] = useState(300);
 
-  const [data, setData] = useState<GraphData[]>([]);
+  const [data, setData] = useState<GetUserHistoryResult[]>([]);
 
   useEffect(() => {
     if (user) {
-      getUserHistory(user.email).then((res) => {
-        const emotionsCount = res
-          .map((dataPoint) => dataPoint.emotions)
-          .flat()
-          .reduce((acc, cur) => {
-            acc[cur] = acc[cur] ? acc[cur] + 1 : 1;
-            return acc;
-          }, {} as { [key: string]: number });
-        const graphData: GraphData[] = Object.keys(emotionsCount).map(
-          (key) => ({
-            polarAngleAxisDataKey: key,
-            radarDataKey: emotionsCount[key],
-          })
-        );
-
-        setData(graphData);
-      });
+      getUserHistory(user.email).then((r) => setData(r));
     }
   }, [user]);
 

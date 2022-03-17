@@ -1,9 +1,22 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 
-export const EmotionalJourney = () => {
+interface GraphData {
+  polarAngleAxisDataKey: string;
+  radarDataKey: number;
+}
+
+interface EmotionalJourneyProps {
+  data: GraphData[];
+  dimensions: number;
+}
+
+export const EmotionalJourney = ({
+  data,
+  dimensions,
+}: EmotionalJourneyProps) => {
   return (
-    <Box>
-      <Heading as="h1">Emotional Journey</Heading>
+    <Box as="section">
+      <Heading as="h2">Emotional Journey</Heading>
 
       <Text>https://recharts.org/en-US/examples/SimpleBarChart</Text>
     </Box>

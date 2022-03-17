@@ -1,4 +1,5 @@
 import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
+import { useMemo, useState } from "react";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -8,14 +9,38 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { GraphData } from "../CatHistory";
+import { GetUserHistoryResult } from "graphql";
+
+interface GraphData {
+  polarAngleAxisDataKey: string;
+  radarDataKey: number;
+}
 
 interface EmotionalRadarProps {
-  data: GraphData[];
+  data: GetUserHistoryResult[];
   dimensions: number;
 }
 
 export const EmotionalRadar = ({ data, dimensions }: EmotionalRadarProps) => {
+  const [graphData, setGraohData] = useState<GraphData[]>([]);
+  useMemo(() => {
+    const emotionsCount = data
+      .map((dataPoint) => dataPoint.emotions)
+      .flat()
+      .reduce((acc, cur) => {
+        acc[cur] = acc[cur] ? acc[cur] + 1 : 1;
+        return acc;
+      }, {} as { [key: string]: number });
+    const compiledGraphData: GraphData[] = Object.keys(emotionsCount).map(
+      (key) => ({
+        polarAngleAxisDataKey: key,
+        radarDataKey: emotionsCount[key],
+      })
+    );
+
+    setGraohData(compiledGraphData);
+  }, [data]);
+
   const polarAngleAxisTextColor = useColorModeValue("black", "white");
 
   return (
@@ -25,7 +50,7 @@ export const EmotionalRadar = ({ data, dimensions }: EmotionalRadarProps) => {
       </Heading>
 
       <ResponsiveContainer width="100%" height={dimensions}>
-        <RadarChart data={data}>
+        <RadarChart data={graphData}>
           <PolarGrid />
           <PolarAngleAxis
             dataKey="polarAngleAxisDataKey"
