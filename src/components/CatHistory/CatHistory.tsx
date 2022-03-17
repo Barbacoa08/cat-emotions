@@ -11,21 +11,19 @@ import {
   NumberInputStepper,
   Text,
 } from "@chakra-ui/react";
-import netlifyIdentity from "netlify-identity-widget";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useGlobal, useState } from "reactn";
 
 import { getUserHistory } from "graphql";
 
 import { EmotionalRadar } from "./EmotionalRadar";
 
-interface GraphData {
+export interface GraphData {
   polarAngleAxisDataKey: string;
   radarDataKey: number;
 }
 
 export const CatHistory = () => {
-  // TODO: make/find a hook for this
-  const user = useMemo(() => netlifyIdentity.currentUser(), []);
+  const [user] = useGlobal("user");
   const [dimensions, setDimensions] = useState(300);
 
   const [data, setData] = useState<GraphData[]>([]);
@@ -58,7 +56,7 @@ export const CatHistory = () => {
 
       {user && data.length ? (
         <Flex direction="column" alignItems="center">
-          <FormControl marginBottom={5} width="20rem">
+          <FormControl margin={5} width="20rem">
             <FormLabel>Dimensions for the Cat History Graph</FormLabel>
 
             <NumberInput

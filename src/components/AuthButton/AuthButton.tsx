@@ -1,69 +1,60 @@
-import { Button } from "@chakra-ui/react";
-import netlifyIdentity, { User } from "netlify-identity-widget";
-import { useNavigate } from "react-router-dom";
+import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { Button, useColorModeValue, useToast } from "@chakra-ui/react";
+import netlifyIdentity from "netlify-identity-widget";
+import { useEffect, useGlobal } from "reactn";
 
-// example created from: https://github.com/netlify/netlify-identity-widget/tree/master/example/react
-// and here: https://github.com/netlify/netlify-identity-widget
+// example created from: https://github.com/netlify/netlify-identity-widget
 export const AuthButton = () => {
-  const netlifyAuth = {
-    isAuthenticated: false,
-    user: null as User | null,
-    authenticate(callback: (user?: User) => void) {
-      this.isAuthenticated = true;
-      netlifyIdentity.open();
-      netlifyIdentity.on("login", (user) => {
-        this.user = user;
-        callback(user);
-      });
-    },
-    signout(callback: (user?: User) => void) {
-      this.isAuthenticated = false;
-      netlifyIdentity.logout();
-      netlifyIdentity.on("logout", () => {
-        this.user = null;
-        callback();
-      });
-    },
-  };
+  const [authenticated, setAuthenticated] = useGlobal("authenticated");
+  const [, setUser] = useGlobal("user");
 
-  const navigate = useNavigate();
+  const toast = useToast();
 
-  const login = () => {
-    netlifyAuth.authenticate((user) => {
-      console.log({ user });
-      console.log("user email", user?.email);
+  useEffect(() => {
+    netlifyIdentity.on("login", (signInUser) => {
+      netlifyIdentity.close();
+
+      setAuthenticated(true);
+      setUser(signInUser);
+
+      const name = signInUser?.user_metadata?.full_name || signInUser.email;
+
+      toast({
+        title: "Signed In!",
+        description: `Hello there, ${name}!`,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+
+      // TODO: `useNavigate` to go to... history?
     });
-  };
 
-  // BUG: not updating properly. need to setup state for the `user`... globally?
-  return netlifyAuth.isAuthenticated ? (
+    netlifyIdentity.on("logout", () => {
+      setAuthenticated(false);
+      setUser(undefined);
+    });
+
+    return () => {
+      netlifyIdentity.off("login");
+      netlifyIdentity.off("logout");
+    };
+  }, [setAuthenticated, setUser, toast]);
+
+  const buttonHighlightColor = useColorModeValue("pink.800", "pink.400");
+
+  return (
     <Button
-      display={{ base: "none", md: "inline-flex" }}
-      fontSize={"sm"}
-      fontWeight={600}
-      color={"white"}
+      leftIcon={authenticated ? <ArrowBackIcon /> : undefined}
+      rightIcon={!authenticated ? <ArrowForwardIcon /> : undefined}
       _hover={{
-        bg: "pink.300",
+        bg: buttonHighlightColor,
       }}
       onClick={() => {
-        netlifyAuth.signout(() => navigate("/"));
+        authenticated ? netlifyIdentity.logout() : netlifyIdentity.open();
       }}
     >
-      Sign Out
-    </Button>
-  ) : (
-    <Button
-      display={{ base: "none", md: "inline-flex" }}
-      fontSize={"sm"}
-      fontWeight={600}
-      color={"white"}
-      bg={"pink.400"}
-      _hover={{
-        bg: "pink.300",
-      }}
-      onClick={login}
-    >
-      Sign In/Up
+      {authenticated ? "Sign Out" : "Sign In/Up"}
     </Button>
   );
 };
