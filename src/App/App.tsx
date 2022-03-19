@@ -1,6 +1,6 @@
 import netlifyIdentity, { User } from "netlify-identity-widget";
 import { useEffect, useGlobal } from "reactn";
-
+import { SkipNavLink, SkipNavContent } from "@chakra-ui/skip-nav";
 import { TopNav } from "components";
 import { RouteContainer } from "navigation";
 
@@ -29,9 +29,13 @@ export const App = () => {
 
   return (
     <div className="app">
+      <SkipNavLink>Skip to content</SkipNavLink>
+
       <TopNav />
 
-      <RouteContainer />
+      <SkipNavContent>
+        <RouteContainer />
+      </SkipNavContent>
     </div>
   );
 };
