@@ -1,4 +1,4 @@
-import netlifyIdentity from "netlify-identity-widget";
+import netlifyIdentity, { User } from "netlify-identity-widget";
 import { useEffect, useGlobal } from "reactn";
 
 import { TopNav } from "components";
@@ -16,6 +16,14 @@ export const App = () => {
     if (user) {
       setAuthenticated(true);
       setUser(user);
+    }
+
+    // TODO: going to need to find a better way to do this
+    if (process.env.NODE_ENV !== "production") {
+      setAuthenticated(true);
+      setUser({
+        email: "barbi",
+      } as User);
     }
   }, [setAuthenticated, setUser]);
 
