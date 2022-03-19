@@ -1489,6 +1489,13 @@
     "@chakra-ui/system" "1.11.2"
     "@chakra-ui/utils" "1.10.4"
 
+"@chakra-ui/skip-nav@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/skip-nav/-/skip-nav-1.2.6.tgz#44e88f3aa1958716ec2854ef5a2ca89412a70b65"
+  integrity sha512-+ya4q3/iW/z3/B7ibaBwcsqa3LIB9MQqOWy4lzJCa8D6eagdSXhPN0+pxjkz6BxyQfxi2Rxz0A6KrgtuwAg2qw==
+  dependencies:
+    "@chakra-ui/utils" "1.10.4"
+
 "@chakra-ui/slider@1.5.9":
   version "1.5.9"
   resolved "https://registry.yarnpkg.com/@chakra-ui/slider/-/slider-1.5.9.tgz#c4fea8487f26c35bf78ae0489e62e0b8542ec147"
