@@ -10,6 +10,7 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
+  ModalHeader,
   ModalOverlay,
   Text,
   useDisclosure,
@@ -62,7 +63,9 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
         <ModalOverlay />
 
         <ModalContent title="Cat confirmation and emotional tag selection">
-          <ModalBody>
+          <ModalHeader as="h1">Select and Record Cat Emotion</ModalHeader>
+
+          <ModalBody role="main">
             <Image
               alt={alt}
               fallbackSrc="https://via.placeholder.com/100"
@@ -77,7 +80,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             </Text>
 
             <FormControl p={2} isInvalid={selectedTagOptions.length === 0}>
-              <FormLabel>Select with creatable options</FormLabel>
+              <FormLabel>Select/Create emotion</FormLabel>
 
               {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
               <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>

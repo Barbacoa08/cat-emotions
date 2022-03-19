@@ -20,8 +20,8 @@ export const EmotionSelect = () => {
   }, []);
 
   return (
-    <Box>
-      <Heading>Cat/Emotion Selector</Heading>
+    <Box role="main">
+      <Heading as="h1">Cat/Emotion Selector</Heading>
 
       <Grid
         templateColumns="repeat(3, 1fr)"
