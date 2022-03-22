@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 
-import { CatHistory } from ".";
+import { About } from ".";
 
-describe("CatHistory Component", () => {
+describe("About Component", () => {
   it("fully renders without exploding", () => {
-    render(<CatHistory />);
+    render(<About />);
 
-    const imgByAltText = screen.getByText("Cat History");
+    const imgByAltText = screen.getByText("About");
     expect(imgByAltText).toBeInTheDocument();
   });
 });
