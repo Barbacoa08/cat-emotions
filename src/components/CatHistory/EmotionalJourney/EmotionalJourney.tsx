@@ -5,7 +5,6 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -79,20 +78,14 @@ export const EmotionalJourney = ({
     <Box as="section">
       <Heading as="h2">Emotional Journey</Heading>
 
-      <ResponsiveContainer
-        minWidth="100%"
-        width={dimensions}
-        height={dimensions}
-      >
-        <BarChart data={graphData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="xAxisDataKeyDate" stroke={polarAngleAxisTextColor} />
-          <YAxis stroke={polarAngleAxisTextColor} />
-          <Tooltip labelStyle={{ color: "black" }} />
-          <Legend />
-          {bars}
-        </BarChart>
-      </ResponsiveContainer>
+      <BarChart data={graphData} width={dimensions} height={dimensions}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="xAxisDataKeyDate" stroke={polarAngleAxisTextColor} />
+        <YAxis stroke={polarAngleAxisTextColor} />
+        <Tooltip labelStyle={{ color: "black" }} />
+        <Legend />
+        {bars}
+      </BarChart>
     </Box>
   );
 };
