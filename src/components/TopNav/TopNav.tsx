@@ -171,10 +171,14 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Select Cat",
-    to: routes.emotionSelect,
+    to: routes.select,
   },
   {
-    label: "Cat History",
-    to: routes.history,
+    label: "Cat Journey",
+    to: routes.journey,
+  },
+  {
+    label: "About",
+    to: routes.about,
   },
 ];

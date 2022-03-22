@@ -1,3 +1,4 @@
+export * from "./About";
 export * from "./AuthButton";
 export * from "./CatHistory";
 export * from "./EmotionSelect";
