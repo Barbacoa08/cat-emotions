@@ -31,7 +31,7 @@ export const CatHistory = () => {
 
   const [dimensions, setDimensions] = useState(300);
   const [data, setData] = useState<GetUserHistoryResult[]>([]);
-  const [graphSelection, setGraphSelection] = useState("radar");
+  const [graphSelection, setGraphSelection] = useState("radar"); // <"radar" | "history">
 
   return (
     <Box role="main">

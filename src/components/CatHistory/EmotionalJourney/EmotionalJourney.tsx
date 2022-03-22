@@ -13,8 +13,9 @@ import {
 
 import { GetUserHistoryResult } from "graphql";
 
-interface GraphData extends Object {
+interface GraphData {
   xAxisDataKeyDate: string;
+  [key: string]: string | number;
 }
 
 interface EmotionalJourneyProps {
@@ -42,12 +43,12 @@ export const EmotionalJourney = ({
         });
       }
 
-      const target: any = dataset[dataset.length - 1];
+      const target: GraphData = dataset[dataset.length - 1];
 
       entry.emotions.forEach((emotion) => {
         const emotionTodo = target[emotion] || 0;
 
-        target[emotion] = emotionTodo + 1;
+        target[emotion] = (emotionTodo as number) + 1;
       });
     });
 
