@@ -44,13 +44,13 @@ export const EmotionalRadar = ({ data, dimensions }: EmotionalRadarProps) => {
   const polarAngleAxisTextColor = useColorModeValue("black", "white");
 
   return (
-    <Box as="section">
+    <Box as="section" width={dimensions}>
       <Heading as="h2" id="emotional-radar-chart">
         Emotional Radar
       </Heading>
 
       <ResponsiveContainer width="100%" height={dimensions}>
-        <RadarChart data={graphData}>
+        <RadarChart data={graphData} outerRadius="70%">
           <PolarGrid />
           <PolarAngleAxis
             dataKey="polarAngleAxisDataKey"

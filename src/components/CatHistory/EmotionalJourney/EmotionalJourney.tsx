@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useMemo, useState } from "react";
 import {
   Bar,
@@ -73,16 +73,22 @@ export const EmotionalJourney = ({
     ));
   }, [data]);
 
+  const polarAngleAxisTextColor = useColorModeValue("black", "white");
+
   return (
     <Box as="section">
       <Heading as="h2">Emotional Journey</Heading>
 
-      <ResponsiveContainer width="100%" height={dimensions}>
+      <ResponsiveContainer
+        minWidth="100%"
+        width={dimensions}
+        height={dimensions}
+      >
         <BarChart data={graphData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="xAxisDataKeyDate" />
-          <YAxis />
-          <Tooltip />
+          <XAxis dataKey="xAxisDataKeyDate" stroke={polarAngleAxisTextColor} />
+          <YAxis stroke={polarAngleAxisTextColor} />
+          <Tooltip labelStyle={{ color: "black" }} />
           <Legend />
           {bars}
         </BarChart>
