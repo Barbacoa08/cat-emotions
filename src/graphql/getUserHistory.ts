@@ -4,10 +4,10 @@ import {
   GetUserHistoryResultApiResult,
 } from "./shared/types";
 
-function fetchGetUserHistory(user: string) {
+function fetchGetUserHistory(user: string, orderByDatetime?: "asc" | "desc") {
   const operationsDoc = `
-    query getUserHistory($user: String = "") {
-      emotions(where: {user: {_ilike: $user}}) {
+    query getUserHistory($user: String = "", $datetime: order_by = asc) {
+      emotions(where: {user: {_ilike: $user}}, order_by: {datetime: $datetime}) {
         datetime
         emotions
         image
@@ -16,13 +16,17 @@ function fetchGetUserHistory(user: string) {
     }
   `;
 
-  return fetchGraphQL(operationsDoc, "getUserHistory", { user: user });
+  return fetchGraphQL(operationsDoc, "getUserHistory", {
+    user: user,
+    datetime: orderByDatetime,
+  });
 }
 
 export const getUserHistory = async (
-  user: string
+  user: string,
+  orderByDatetime?: "asc" | "desc"
 ): Promise<GetUserHistoryResult[]> => {
-  const { errors, data } = await fetchGetUserHistory(user);
+  const { errors, data } = await fetchGetUserHistory(user, orderByDatetime);
   const emotions: GetUserHistoryResultApiResult[] = data?.emotions || [];
   const result: GetUserHistoryResult[] = emotions.map((e) => ({
     ...e,
