@@ -73,8 +73,6 @@ export const EmotionalJourney = ({
     ));
   }, [data]);
 
-  console.log("bars", bars);
-
   return (
     <Box as="section">
       <Heading as="h2">Emotional Journey</Heading>
