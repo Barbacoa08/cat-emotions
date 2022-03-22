@@ -27,7 +27,7 @@ export const Home = () => {
 
         <Text textAlign="left">
           If you have questions or comments, you can contact me via the{" "}
-          <Link to={routes.select}>About</Link> page.
+          <Link to={routes.about}>About</Link> page.
         </Text>
       </Stack>
     </Box>
