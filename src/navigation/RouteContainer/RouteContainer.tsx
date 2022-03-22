@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 
-import { CatHistory, EmotionSelect, Home } from "components";
+import { About, CatJourney, EmotionSelect, Home } from "components";
 
 export const routes = {
   home: "/home",
 
-  emotionSelect: "/emotion-select",
-  history: "/history",
+  select: "/emotion-select",
+  journey: "/journey",
+  about: "/about",
 };
 
 export const RouteContainer = () => {
@@ -15,8 +16,9 @@ export const RouteContainer = () => {
       <Route path="/" element={<Home />} />
       <Route path={routes.home} element={<Home />} />
 
-      <Route path={routes.emotionSelect} element={<EmotionSelect />} />
-      <Route path={routes.history} element={<CatHistory />} />
+      <Route path={routes.select} element={<EmotionSelect />} />
+      <Route path={routes.journey} element={<CatJourney />} />
+      <Route path={routes.about} element={<About />} />
 
       <Route
         path="*"

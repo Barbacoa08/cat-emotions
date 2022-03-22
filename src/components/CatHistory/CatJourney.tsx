@@ -21,7 +21,7 @@ import { getUserHistory, GetUserHistoryResult } from "graphql";
 import { EmotionalJourney } from "./EmotionalJourney";
 import { EmotionalRadar } from "./EmotionalRadar";
 
-export const CatHistory = () => {
+export const CatJourney = () => {
   const [user] = useGlobal("user");
   useEffect(() => {
     if (user) {
@@ -29,13 +29,13 @@ export const CatHistory = () => {
     }
   }, [user]);
 
-  const [dimensions, setDimensions] = useState(300);
+  const [dimensions, setDimensions] = useState(400);
   const [data, setData] = useState<GetUserHistoryResult[]>([]);
   const [graphSelection, setGraphSelection] = useState("radar"); // <"radar" | "history">
 
   return (
     <Box role="main">
-      <Heading as="h1">Cat History</Heading>
+      <Heading as="h1">Cat Journey</Heading>
 
       {user && data.length ? (
         <Flex direction="column" alignItems="center">
