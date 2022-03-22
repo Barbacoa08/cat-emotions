@@ -6,7 +6,7 @@ describe("ContactMe Component", () => {
   it("fully renders without exploding", () => {
     render(<ContactMe />);
 
-    const imgByAltText = screen.getByText("send it to me");
+    const imgByAltText = screen.getByText("Contact Me");
     expect(imgByAltText).toBeInTheDocument();
   });
 });
