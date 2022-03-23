@@ -6,7 +6,7 @@ describe("TipMe Component", () => {
   it("fully renders without exploding", () => {
     render(<TipMe />);
 
-    const imgByAltText = screen.getByText("Tip Me");
+    const imgByAltText = screen.getByText("Tip Me?");
     expect(imgByAltText).toBeInTheDocument();
   });
 });
