@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   Image,
-  Link,
   Text,
 } from "@chakra-ui/react";
 
@@ -27,50 +26,59 @@ export const TipMe = () => {
       </Text>
 
       <Container padding={5}>
-        <Flex justifyContent="space-between">
-          <Button
-            variant="ghost"
-            backgroundColor="#ffc439"
-            borderRadius={23}
-            paddingTop={2}
-            width={200}
+        <Flex>
+          <form
+            action="https://www.paypal.com/donate"
+            method="post"
+            target="_top"
           >
-            <form
-              action="https://www.paypal.com/donate"
-              method="post"
-              target="_top"
+            <input type="hidden" name="business" value="A93ZP7FUUJ6SC" />
+            <input type="hidden" name="no_recurring" value="1" />
+            <input type="hidden" name="currency_code" value="USD" />
+
+            <Button
+              variant="ghost"
+              backgroundColor="#ffc439"
+              borderRadius={23}
+              width={200}
+              type="submit"
             >
-              <input type="hidden" name="business" value="A93ZP7FUUJ6SC" />
-              <input type="hidden" name="no_recurring" value="1" />
-              <input type="hidden" name="currency_code" value="USD" />
-              <input
-                type="image"
+              <Image
                 src={paypalSvg}
-                name="submit"
                 title="PayPal - The safer, easier way to pay online!"
                 alt="Donate with PayPal button"
               />
-              <img
-                alt="paypal"
-                src="https://www.paypal.com/en_US/i/scr/pixel.gif"
-                width="1"
-                height="1"
-              />
-            </form>
-          </Button>
+            </Button>
+            <img
+              alt="paypal"
+              src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+              width="1"
+              height="1"
+            />
+          </form>
 
           <Button
-            variant="ghost"
+            variant="link"
             backgroundColor="#008CFF"
             borderRadius={23}
             width={200}
+            as="a"
+            href="https://venmo.com/code?user_id=1532230992134144508"
           >
-            <Link
-              href="https://venmo.com/code?user_id=1532230992134144508"
-              isExternal
-            >
-              <Image src={venmoSvg} alt="venmo" />
-            </Link>
+            <Image src={venmoSvg} alt="venmo" />
+          </Button>
+
+          <Button
+            variant="link"
+            width={200}
+            padding={0}
+            as="a"
+            href="https://www.buymeacoffee.com/sabe12070S"
+          >
+            <Image
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+              alt="Buy Me A Coffee"
+            />
           </Button>
         </Flex>
       </Container>
