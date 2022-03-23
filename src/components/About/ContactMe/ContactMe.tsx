@@ -29,7 +29,7 @@ export const ContactMe = () => {
 
   return (
     <>
-      <Heading as="h2" size="lg">
+      <Heading as="h2" size="lg" paddingTop={5} paddingBottom={5}>
         Contact Me
       </Heading>
 

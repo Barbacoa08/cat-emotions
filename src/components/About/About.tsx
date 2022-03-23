@@ -1,6 +1,7 @@
 import { Box, Heading } from "@chakra-ui/react";
 
 import { ContactMe } from "./ContactMe";
+import { TipMe } from "./TipMe";
 
 export const About = () => {
   return (
@@ -10,6 +11,8 @@ export const About = () => {
       </Heading>
 
       <ContactMe />
+
+      <TipMe />
     </Box>
   );
 };
