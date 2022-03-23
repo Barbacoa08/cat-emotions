@@ -84,7 +84,9 @@ export const ContactMe = () => {
               })}
               isInvalid={!!errors.message?.message?.length}
             />
-            <FormHelperText>{errors.message?.message || ""}</FormHelperText>
+            <FormHelperText id="error-helper-text">
+              {errors.message?.message || ""}
+            </FormHelperText>
             <FormHelperText>
               {watch("message").length}/400 characters
             </FormHelperText>

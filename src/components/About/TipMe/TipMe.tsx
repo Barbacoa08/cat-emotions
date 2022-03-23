@@ -15,7 +15,7 @@ const venmoSvg =
 
 export const TipMe = () => {
   return (
-    <Container role="main" paddingTop={5} paddingBottom={5}>
+    <Container paddingTop={5} paddingBottom={5}>
       <Heading as="h2" paddingBottom={5}>
         Tip Me?
       </Heading>
