@@ -29,7 +29,7 @@ export const ContactMe = () => {
 
   return (
     <>
-      <Heading as="h2" size="lg">
+      <Heading as="h2" size="lg" paddingTop={5} paddingBottom={5}>
         Contact Me
       </Heading>
 
@@ -84,7 +84,9 @@ export const ContactMe = () => {
               })}
               isInvalid={!!errors.message?.message?.length}
             />
-            <FormHelperText>{errors.message?.message || ""}</FormHelperText>
+            <FormHelperText id="error-helper-text">
+              {errors.message?.message || ""}
+            </FormHelperText>
             <FormHelperText>
               {watch("message").length}/400 characters
             </FormHelperText>

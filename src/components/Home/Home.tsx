@@ -1,6 +1,6 @@
 import {
-  Box,
   Link as ChakraLink,
+  Container,
   Heading,
   Stack,
   Text,
@@ -13,10 +13,10 @@ import { routes } from "navigation";
 
 export const Home = () => {
   return (
-    <Box role="main">
+    <Container role="main">
       <Heading as="h1">Cat Emotions</Heading>
 
-      <Stack width={500} margin="auto" paddingTop={5}>
+      <Stack margin="auto" paddingTop={5}>
         <Text textAlign="left">
           Welcome! This is a tracker for your emotional journey via cat pics!
           After tracking at least one cat emotion via{" "}
@@ -30,7 +30,7 @@ export const Home = () => {
           <Link to={routes.about}>About</Link> page.
         </Text>
       </Stack>
-    </Box>
+    </Container>
   );
 };
 
