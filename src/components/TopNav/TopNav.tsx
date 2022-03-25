@@ -20,7 +20,8 @@ import { NavLink } from "react-router-dom";
 import { AuthButton } from "components/AuthButton";
 import { routes } from "navigation";
 
-import cat from "./icons8-pixel-cat-30.png";
+import catBlack from "./icons8-pixel-cat-ios-glyph-30-black.png";
+import catWhite from "./icons8-pixel-cat-ios-glyph-30-white.png";
 
 // treasure hunted from: https://chakra-templates.dev/navigation/navbar
 export const TopNav = () => {
@@ -55,7 +56,10 @@ export const TopNav = () => {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Image src={cat} alt={"an image of a cat made out of pixels"} />
+          <Image
+            src={colorMode === "light" ? catBlack : catWhite}
+            alt={"an image of a cat made out of pixels"}
+          />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
