@@ -41,7 +41,7 @@ describe("CatEmotionImage Component", () => {
     const selectedOption = screen.getByLabelText(`Remove ${exampleTags[0]}`);
     expect(selectedOption).toBeInTheDocument();
 
-    const errorText = "You must select at least one tag";
+    const errorText = "You must select or create at least one tag";
     expect(screen.queryByText(errorText)).not.toBeInTheDocument();
 
     const clearBtn = screen.getByLabelText("Clear selected options");

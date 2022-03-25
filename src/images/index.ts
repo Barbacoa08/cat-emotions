@@ -1,19 +1,28 @@
 import { CatEmotionImageProps } from "components/CatEmotionImage";
 
+// import addYourOwn from "./add-your-own.png"; // manually added at end of list in `EmotionSelect.tsx`
+
 import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
 import cuddly from "./cuddly.jpg";
 import destructive from "./destructive-guilty-uncaring.jpg";
+import fake from "./fake.jpg";
 import grumpy from "./grumpy.jpg";
 import happy from "./happy.jpg";
+import incensed from "./incensed.jpg";
 import mischievous from "./mischievous.jpg";
+import obstinate from "./obstinate.jpg";
+import proud from "./proud.jpg";
+import shocked from "./shocked.jpg";
 import sick from "./sick.jpg";
 import sickGrumpy from "./sick-grumpy.jpg";
 import sleepy from "./sleepy.jpg";
 import surprised from "./surprised.jpg";
 import surprisedGuilty from "./surprised-guilty.jpg";
+import suspicious from "./suspicious.jpg";
 import tense from "./tense.jpg";
+import unamused from "./unamused.jpg";
 
 export const allCatImages: CatEmotionImageProps[] = [
   {
@@ -42,6 +51,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat sitting on a completely destroyed chair looking guilty and completely uncaring",
   },
   {
+    src: fake,
+    tags: ["fake", "eccedentesiast"],
+    alt: "image of a cat staring into the camera with a piece of paper covering it's mouth that has a drawn on smile",
+  },
+  {
     src: grumpy,
     tags: ["grumpy"],
     alt: "image of grumpy cat",
@@ -52,9 +66,29 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat staring into the camera with closed eyes and a happy smile",
   },
   {
+    src: incensed,
+    tags: ["incensed", "angry", "frustrated"],
+    alt: "image of a cat sitting straight up with it's ears pulled back and a incensed face",
+  },
+  {
     src: mischievous,
     tags: ["mischievous"],
     alt: "image of a cat with a paw up and a mischievous smirk on it's face",
+  },
+  {
+    src: obstinate,
+    tags: ["obstinate", "playful"],
+    alt: "image of a cat with it's ears perked up, eyes narrowed, and sticking it's tongue out",
+  },
+  {
+    src: proud,
+    tags: ["proud"],
+    alt: "image of a finely groomed cat with it's eyes closed and a proud looking smile on it's face",
+  },
+  {
+    src: shocked,
+    tags: ["shocked", "confused"],
+    alt: "image of a cat with wide open eyes and mouth agape with it's tongue slightly out, as if something shocked it as it was about to clean itself",
   },
   {
     src: sick,
@@ -72,19 +106,29 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat yawning while a human hand scratches it's belly",
   },
   {
-    src: surprisedGuilty,
-    tags: ["guilty"],
-    alt: "image of a cat laying in a basket looking half-asleep and surprised to see the camera in a guilty sort of way",
-  },
-  {
     src: surprised,
     tags: ["surprised"],
     alt: "image of a cat with both paws up and looking very surprised at the camera",
   },
   {
+    src: surprisedGuilty,
+    tags: ["guilty"],
+    alt: "image of a cat laying in a basket looking half-asleep and surprised to see the camera in a guilty sort of way",
+  },
+  {
+    src: suspicious,
+    tags: ["suspicious", "doubtful"],
+    alt: "image of a cat with both ears up and one slightly cocked to the side, with it's whiskers turned slightly down and one eye slightly closed in a face that make it look as if it is highly suspicious",
+  },
+  {
     src: tense,
     tags: ["tense"],
     alt: "image of a cat that is partially crouched and focused, appearing as if it is ready to pounce",
+  },
+  {
+    src: unamused,
+    tags: ["unamused"],
+    alt: "image of a cat whose face is mostly blank with eyes half closed as if to say, 'really?'",
   },
 ];
 

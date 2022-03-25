@@ -4,6 +4,8 @@ import { useMemo } from "react";
 import { CatEmotionImage } from "components/CatEmotionImage";
 import { allCatImages } from "images";
 
+import addYourOwn from "images/add-your-own.png";
+
 export const EmotionSelect = () => {
   // TODO: `useMobileView` (3x3 vs 5x5), but CSS
   // TODO: `typeOfCats: real | anime | pixel | cartoon`
@@ -30,6 +32,13 @@ export const EmotionSelect = () => {
         justifyItems="center"
       >
         {items}
+        <GridItem>
+          <CatEmotionImage
+            alt="if you can't find a cat that represents your current feels, you can click here to add your own"
+            src={addYourOwn}
+            tags={[]}
+          />
+        </GridItem>
       </Grid>
     </Box>
   );
