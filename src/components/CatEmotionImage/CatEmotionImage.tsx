@@ -98,7 +98,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               />
 
               <FormErrorMessage>
-                You must select at least one tag
+                You must select or create at least one tag
               </FormErrorMessage>
             </FormControl>
           </ModalBody>

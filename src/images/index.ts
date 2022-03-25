@@ -1,5 +1,7 @@
 import { CatEmotionImageProps } from "components/CatEmotionImage";
 
+// import addYourOwn from "./add-your-own.png"; // manually added at end of list in `EmotionSelect.tsx`
+
 import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
