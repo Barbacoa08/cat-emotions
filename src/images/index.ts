@@ -103,7 +103,7 @@ export const allCatImages: CatEmotionImageProps[] = [
   {
     src: sleepy,
     tags: ["sleepy"],
-    alt: "image of a cat yawning while a human hand scratches it's belly",
+    alt: "image of a cat yawning",
   },
   {
     src: surprised,
