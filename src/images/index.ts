@@ -7,6 +7,7 @@ import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
 import contemplative from "./contemplative.jpg";
 import cuddly from "./cuddly.jpg";
+import curious from "./curious.jpg";
 import destructive from "./destructive-guilty-uncaring.jpg";
 import fake from "./fake.jpg";
 import grumpy from "./grumpy.jpg";
@@ -50,6 +51,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: cuddly,
     tags: ["cuddly"],
     alt: "image of a mother cat curled up and sleeping with it's kitten embraced",
+  },
+  {
+    src: curious,
+    tags: ["curious"],
+    alt: "image of a cat laying down in a relaxed manner, looking back at something with a curious look on it's face",
   },
   {
     src: destructive,
