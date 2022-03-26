@@ -5,6 +5,7 @@ import { CatEmotionImageProps } from "components/CatEmotionImage";
 import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
+import contemplative from "./contemplative.jpg";
 import cuddly from "./cuddly.jpg";
 import destructive from "./destructive-guilty-uncaring.jpg";
 import fake from "./fake.jpg";
@@ -39,6 +40,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: beingEaten,
     tags: ["annoyed", "apathetic"],
     alt: "image of a cat being gently chomped on by a large dog, the cat appears to not care",
+  },
+  {
+    src: contemplative,
+    tags: ["contemplative"],
+    alt: "image of a cat laying down by a window and looking out in a calm, contemplative way",
   },
   {
     src: cuddly,
