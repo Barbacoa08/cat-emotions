@@ -62,7 +62,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
 
-        <ModalContent title="Cat confirmation and emotional tag selection">
+        <ModalContent>
           <ModalHeader as="h1">Select and Record Cat Emotion</ModalHeader>
 
           <ModalBody role="main">
