@@ -13,18 +13,27 @@ import fake from "./fake.jpg";
 import grumpy from "./grumpy.jpg";
 import happy from "./happy.jpg";
 import incensed from "./incensed.jpg";
+import judgemental from "./judgemental.jpg";
 import mischievous from "./mischievous.jpg";
+import needyPleadingYearnful from "./needy-pleading-yearnful.jpg";
 import obstinate from "./obstinate.jpg";
+import playful from "./playful.jpg";
 import proud from "./proud.jpg";
+import rageful from "./rageful-angry-pissed-judgemental.jpg";
+import regal from "./regal-upset-proud.jpg";
+import sexy from "./sexy.jpg";
+import shocked2 from "./shocked-surprised-astonished.jpg";
 import shocked from "./shocked.jpg";
 import sick from "./sick.jpg";
 import sickGrumpy from "./sick-grumpy.jpg";
+import sleepy2 from "./sleepy-2.jpg";
 import sleepy from "./sleepy.jpg";
 import surprised from "./surprised.jpg";
 import surprisedGuilty from "./surprised-guilty.jpg";
 import suspicious from "./suspicious.jpg";
 import tense from "./tense.jpg";
 import unamused from "./unamused.jpg";
+import unimpressed from "./unimpressed.jpg";
 
 export const allCatImages: CatEmotionImageProps[] = [
   {
@@ -83,9 +92,19 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat sitting straight up with it's ears pulled back and a incensed face",
   },
   {
+    src: judgemental,
+    tags: ["judgemental"],
+    alt: "image of a cat's face with a disproving and highly judgemental look on it's face, the text 'judging intensifies' is written on the image",
+  },
+  {
     src: mischievous,
     tags: ["mischievous"],
     alt: "image of a cat with a paw up and a mischievous smirk on it's face",
+  },
+  {
+    src: needyPleadingYearnful,
+    tags: ["needy", "pleading", "yearnful"],
+    alt: "image of a cat reaching up a person's leg with a pleading look on it's face to be picked up",
   },
   {
     src: obstinate,
@@ -93,9 +112,34 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat with it's ears perked up, eyes narrowed, and sticking it's tongue out",
   },
   {
+    src: playful,
+    tags: ["playful"],
+    alt: "image of cat in a box with a playful look on it's face",
+  },
+  {
     src: proud,
     tags: ["proud"],
     alt: "image of a finely groomed cat with it's eyes closed and a proud looking smile on it's face",
+  },
+  {
+    src: rageful,
+    tags: ["rageful", "angry", "pissed", "judgemental"],
+    alt: "image of a cat with it's whiskers turned down, it's ears perked up, and an angry, disproving, judgemental look on it's face",
+  },
+  {
+    src: regal,
+    tags: ["regal", "upset", "proud", "unhappy"],
+    alt: "close image of a cat's face with a regal and proud look on it's face, but also perhaps slightly unhappy or upset",
+  },
+  {
+    src: sexy,
+    tags: ["sexy"],
+    alt: "image of a cat stretched out on it's back in a (funny) sexy pose",
+  },
+  {
+    src: shocked2,
+    tags: ["shocked", "surprised", "astonished"],
+    alt: "image of a cat partially inside of scrap wrapping paper with one ear cocked and one straight up, with wide eyes in a shocked, surprised, and/or astonished expression",
   },
   {
     src: shocked,
@@ -110,7 +154,12 @@ export const allCatImages: CatEmotionImageProps[] = [
   {
     src: sickGrumpy,
     tags: ["sick", "grumpy", "sleepy"],
-    alt: "image of a grumpy cat sitting up with a cold compress on it's head, a thermometer in it's mouth, and it's tail wrapped around some cough syrup ",
+    alt: "image of a grumpy cat sitting up with a cold compress on it's head, a thermometer in it's mouth, and it's tail wrapped around some cough syrup",
+  },
+  {
+    src: sleepy2,
+    tags: ["sleepy", "exhausted"],
+    alt: "image of a cat laying on it's side with both eye's mostly closed and a sleepy look on it's face",
   },
   {
     src: sleepy,
@@ -141,6 +190,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: unamused,
     tags: ["unamused"],
     alt: "image of a cat whose face is mostly blank with eyes half closed as if to say, 'really?'",
+  },
+  {
+    src: unimpressed,
+    tags: ["unimpressed"],
+    alt: "image of a cat laying down on a pillow with it's front paws crossed over each other and a, very, unimpressed expression on it's face",
   },
 ];
 
