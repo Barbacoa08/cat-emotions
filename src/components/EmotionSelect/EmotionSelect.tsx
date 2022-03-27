@@ -24,10 +24,12 @@ export const EmotionSelect = () => {
 
   const searchableCatImages = useMemo(
     () =>
-      allCatImages.map((catImage) => ({
-        ...catImage,
-        mergedTags: catImage.tags.join(" "),
-      })),
+      allCatImages
+        .map((catImage) => ({
+          ...catImage,
+          mergedTags: catImage.tags.join(" "),
+        }))
+        .sort(() => Math.random() - 0.5),
     []
   );
 
@@ -46,13 +48,16 @@ export const EmotionSelect = () => {
 
   const items = useMemo(
     () =>
-      filteredImages
-        .map(({ alt, src, tags }, i) => (
-          <GridItem key={i}>
-            <CatEmotionImage alt={alt} src={src} tags={tags} />
-          </GridItem>
-        ))
-        .sort(() => Math.random() - 0.5),
+      filteredImages.map(({ alt, src, tags }, i) => (
+        <GridItem key={i}>
+          <CatEmotionImage
+            alt={alt}
+            key={`${i}-${tags.join()}`}
+            src={src}
+            tags={tags}
+          />
+        </GridItem>
+      )),
     [filteredImages]
   );
 
