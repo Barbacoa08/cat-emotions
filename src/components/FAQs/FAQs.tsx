@@ -18,8 +18,12 @@ export const FAQs = () => {
   const defaultIndex = useMemo(() => {
     const id = window.location.hash.slice(1);
     switch (id) {
+      case routes.faqsSections.what.id:
+        return routes.faqsSections.what.index;
+
       case routes.faqsSections.whyHow.id:
         return routes.faqsSections.whyHow.index;
+
       default:
         return undefined;
     }
@@ -41,7 +45,7 @@ export const FAQs = () => {
             <AccordionIcon />
           </AccordionButton>
 
-          <AccordionPanel textAlign="left">
+          <AccordionPanel textAlign="left" id={routes.faqsSections.what.id}>
             This is a random idea I had while working with my therapist. I was
             having a difficult time articulating my emotions and later on that
             week saw a picture of a cat that I thought <i>perfectly</i>{" "}

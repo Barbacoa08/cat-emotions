@@ -9,7 +9,14 @@ export const routes = {
   journey: "/journey",
   about: "/about",
   faqs: "/faqs",
+
   faqsSections: {
+    what: {
+      index: 0,
+      id: "what",
+      link: "/faqs#what",
+    },
+
     whyHow: {
       index: 1,
       id: "why-how",
