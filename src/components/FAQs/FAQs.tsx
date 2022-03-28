@@ -9,18 +9,29 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
+import { useMemo } from "react";
 
 import { ExternalLink, InternalLink } from "components";
 import { routes } from "navigation";
 
 export const FAQs = () => {
+  const defaultIndex = useMemo(() => {
+    const id = window.location.hash.slice(1);
+    switch (id) {
+      case routes.faqsSections.whyHow.id:
+        return routes.faqsSections.whyHow.index;
+      default:
+        return undefined;
+    }
+  }, []);
+
   return (
     <Container>
       <Heading as="h1" role="main" paddingBottom={5}>
         Frequently Asked Questions
       </Heading>
 
-      <Accordion allowToggle>
+      <Accordion allowToggle defaultIndex={defaultIndex}>
         <AccordionItem>
           <AccordionButton>
             <Box flex="1" textAlign="left" fontWeight="bold">
@@ -48,7 +59,7 @@ export const FAQs = () => {
             <AccordionIcon />
           </AccordionButton>
 
-          <AccordionPanel textAlign="left">
+          <AccordionPanel textAlign="left" id={routes.faqsSections.whyHow.id}>
             <Text paddingBottom={2}>
               When selecting you Cat Emotion, sometimes a single word or phrase
               just isn't enough. I find it helpful to occasionally write out my

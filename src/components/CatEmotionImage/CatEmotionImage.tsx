@@ -132,13 +132,16 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             <FormControl>
               <FormLabel>
                 Why How? (optional)
-                <Tooltip label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark">
+                <Tooltip
+                  hasArrow
+                  label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
+                >
                   <IconButton
                     aria-label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
                     icon={<QuestionIcon />}
                     variant="ghost"
                     as={NavLink}
-                    to={routes.faqs}
+                    to={routes.faqsSections.whyHow.link}
                   />
                 </Tooltip>
               </FormLabel>

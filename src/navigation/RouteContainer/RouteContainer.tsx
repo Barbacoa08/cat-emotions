@@ -9,6 +9,13 @@ export const routes = {
   journey: "/journey",
   about: "/about",
   faqs: "/faqs",
+  faqsSections: {
+    whyHow: {
+      index: 1,
+      id: "why-how",
+      link: "/faqs#why-how",
+    },
+  },
 };
 
 export const RouteContainer = () => {
