@@ -12,6 +12,7 @@ function fetchGetUserHistory(user: string, orderByDatetime?: "asc" | "desc") {
         emotions
         image
         user
+        why
       }
     }
   `;

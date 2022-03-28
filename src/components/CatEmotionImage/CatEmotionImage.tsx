@@ -13,10 +13,14 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  Textarea,
+  Tooltip,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { CreatableSelect, GroupBase, OptionBase } from "chakra-react-select";
+import keywordExtractor from "keyword-extractor";
+import { useEffect } from "react";
 import { useGlobal, useMemo, useState } from "reactn";
 
 import { addEmotion } from "graphql";
@@ -48,6 +52,26 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
   const [selectedTagOptions, setSelectedTagOptions] = useState(
     tags.map(stringToOption)
   );
+
+  const [why, setWhy] = useState("");
+  const [keywords, setKeywords] = useState("");
+  useEffect(() => {
+    if (why) {
+      setKeywords(
+        keywordExtractor
+          .extract(why, {
+            language: "english",
+            remove_digits: false,
+            return_changed_case: true,
+            return_chained_words: false, // NOTE: if set to true, groups things like ["ten thousand", "kinda sad"] instead of ["ten", "thousand", "kinda", "sad"]
+            remove_duplicates: true,
+          })
+          .join(",")
+      );
+    } else {
+      setKeywords("");
+    }
+  }, [why]);
 
   return (
     <Box>
@@ -101,6 +125,12 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                 You must select or create at least one tag
               </FormErrorMessage>
             </FormControl>
+
+            <FormControl>
+              <FormLabel>Why How? (optional)</FormLabel>
+
+              <Textarea onChange={(e) => setWhy(e.target.value)} />
+            </FormControl>
           </ModalBody>
 
           <ModalFooter>
@@ -136,9 +166,10 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                   });
 
                   addEmotion({
-                    user: user.email,
-                    image: src,
                     emotions: selectedTagOptions.map((o) => o.value).join(","),
+                    image: src,
+                    user: user.email,
+                    why: keywords,
                   })
                     .then(() => {
                       toast({
