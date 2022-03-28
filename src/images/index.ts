@@ -76,7 +76,7 @@ export const allCatImages: CatEmotionImageProps[] = [
   },
   {
     src: destructive,
-    tags: ["destructive", "angry"],
+    tags: ["destructive", "angry", "irritated"],
     alt: "image of a cat sitting on a completely destroyed chair looking guilty and completely uncaring",
   },
   {
@@ -86,7 +86,7 @@ export const allCatImages: CatEmotionImageProps[] = [
   },
   {
     src: grumpy,
-    tags: ["grumpy"],
+    tags: ["grumpy", "irritated"],
     alt: "image of grumpy cat",
   },
   {
