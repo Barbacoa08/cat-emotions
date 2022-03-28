@@ -2,6 +2,7 @@ export type AddEmotionRequest = {
   emotions: string;
   image: string;
   user: string;
+  why: string;
 };
 
 export type AddEmotionResult = {
@@ -17,6 +18,7 @@ export type GetUserHistoryResult = {
   emotions: string[];
   image: string;
   user: string;
+  why: string;
 };
 
 export type GetUserHistoryResultApiResult = {
@@ -24,4 +26,5 @@ export type GetUserHistoryResultApiResult = {
   emotions: string;
   image: string;
   user: string;
+  why: string;
 };

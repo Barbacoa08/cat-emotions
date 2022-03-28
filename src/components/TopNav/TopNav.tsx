@@ -185,4 +185,8 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "About",
     to: routes.about,
   },
+  {
+    label: "FAQs",
+    to: routes.faqs,
+  },
 ];

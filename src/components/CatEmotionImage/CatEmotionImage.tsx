@@ -1,3 +1,4 @@
+import { QuestionIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -13,14 +14,20 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  Textarea,
+  Tooltip,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { CreatableSelect, GroupBase, OptionBase } from "chakra-react-select";
+import keywordExtractor from "keyword-extractor";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useGlobal, useMemo, useState } from "reactn";
 
 import { addEmotion } from "graphql";
 import { allTags } from "images";
+import { routes } from "navigation";
 
 export interface CatEmotionImageProps {
   alt: string;
@@ -48,6 +55,26 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
   const [selectedTagOptions, setSelectedTagOptions] = useState(
     tags.map(stringToOption)
   );
+
+  const [why, setWhy] = useState("");
+  const [keywords, setKeywords] = useState("");
+  useEffect(() => {
+    if (why) {
+      setKeywords(
+        keywordExtractor
+          .extract(why, {
+            language: "english",
+            remove_digits: false,
+            return_changed_case: true,
+            return_chained_words: false, // NOTE: if set to true, groups things like ["ten thousand", "kinda sad"] instead of ["ten", "thousand", "kinda", "sad"]
+            remove_duplicates: true,
+          })
+          .join(",")
+      );
+    } else {
+      setKeywords("");
+    }
+  }, [why]);
 
   return (
     <Box>
@@ -79,7 +106,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               {alt}
             </Text>
 
-            <FormControl p={2} isInvalid={selectedTagOptions.length === 0}>
+            <FormControl isInvalid={selectedTagOptions.length === 0}>
               <FormLabel>Select/Create emotion</FormLabel>
 
               {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
@@ -100,6 +127,26 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               <FormErrorMessage>
                 You must select or create at least one tag
               </FormErrorMessage>
+            </FormControl>
+
+            <FormControl>
+              <FormLabel>
+                Why How? (optional)
+                <Tooltip
+                  hasArrow
+                  label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
+                >
+                  <IconButton
+                    aria-label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
+                    icon={<QuestionIcon />}
+                    variant="ghost"
+                    as={NavLink}
+                    to={routes.faqsSections.whyHow.link}
+                  />
+                </Tooltip>
+              </FormLabel>
+
+              <Textarea onChange={(e) => setWhy(e.target.value)} />
             </FormControl>
           </ModalBody>
 
@@ -136,9 +183,10 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
                   });
 
                   addEmotion({
-                    user: user.email,
-                    image: src,
                     emotions: selectedTagOptions.map((o) => o.value).join(","),
+                    image: src,
+                    user: user.email,
+                    why: keywords,
                   })
                     .then(() => {
                       toast({

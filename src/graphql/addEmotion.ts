@@ -3,8 +3,8 @@ import { AddEmotionRequest, AddEmotionResult } from "./shared/types";
 
 function executeAddEmotion(addRequest: AddEmotionRequest) {
   const operationsDoc = `
-    mutation addEmotion($emotions: String, $image: String, $user: String) {
-      insert_emotions(objects: {user: $user, image: $image, emotions: $emotions}) {
+    mutation addEmotion($emotions: String, $image: String, $user: String, $why: String) {
+      insert_emotions(objects: {user: $user, image: $image, emotions: $emotions, why: $why}) {
         affected_rows
         returning {
           user
