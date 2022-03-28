@@ -1,3 +1,4 @@
+import { QuestionIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -21,10 +22,12 @@ import {
 import { CreatableSelect, GroupBase, OptionBase } from "chakra-react-select";
 import keywordExtractor from "keyword-extractor";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useGlobal, useMemo, useState } from "reactn";
 
 import { addEmotion } from "graphql";
 import { allTags } from "images";
+import { routes } from "navigation";
 
 export interface CatEmotionImageProps {
   alt: string;
@@ -127,7 +130,18 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             </FormControl>
 
             <FormControl>
-              <FormLabel>Why How? (optional)</FormLabel>
+              <FormLabel>
+                Why How? (optional)
+                <Tooltip label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark">
+                  <IconButton
+                    aria-label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
+                    icon={<QuestionIcon />}
+                    variant="ghost"
+                    as={NavLink}
+                    to={routes.faqs}
+                  />
+                </Tooltip>
+              </FormLabel>
 
               <Textarea onChange={(e) => setWhy(e.target.value)} />
             </FormControl>

@@ -49,14 +49,20 @@ export const FAQs = () => {
           </AccordionButton>
 
           <AccordionPanel textAlign="left">
-            <Text>
-              Sometimes a single word or phrase just isn't enough. I find it
-              helpful to occasionally just write out my thoughts and feelings,
-              so the "Why How" is a place for you to do that. I don't actually
-              store everything written down, instead I only store the "keywords"
-              that you use (effectively the adjectives and verbs you use).
+            <Text paddingBottom={2}>
+              When selecting you Cat Emotion, sometimes a single word or phrase
+              just isn't enough. I find it helpful to occasionally write out my
+              thoughts and feelings, so the "Why How" is a place for you to do
+              that. Why are you feeling this way? How did you come to this
+              emotion? The "Why How" section is a place for you to express those
+              thoughts (if you want to).
             </Text>
-            <Text>
+            <Text paddingBottom={2}>
+              I don't actually store everything written down, instead I only
+              store the "keywords" that you use (effectively the adjectives and
+              verbs you use).
+            </Text>
+            <Text paddingBottom={2}>
               If you're currious exactly how I do that,{" "}
               <InternalLink to="https://github.com/michaeldelorenzo/keyword-extractor">
                 I use this library
