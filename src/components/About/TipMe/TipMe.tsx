@@ -14,10 +14,8 @@ const venmoSvg =
 
 export const TipMe = () => {
   return (
-    <Container paddingTop={5} paddingBottom={5}>
-      <Heading as="h2" paddingBottom={5}>
-        Tip Me?
-      </Heading>
+    <Container paddingBottom={5}>
+      <Heading as="h2">Tip Me?</Heading>
 
       <Text>
         If you found this site awesome and would like to pay for my next energy

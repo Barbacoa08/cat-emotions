@@ -16,12 +16,9 @@ import { routes } from "navigation";
 export const FAQs = () => {
   return (
     <Container>
-      <Heading as="h1" role="main">
+      <Heading as="h1" role="main" paddingBottom={5}>
         Frequently Asked Questions
       </Heading>
-
-      <Heading as="h2">What is Cat Emotions?</Heading>
-      <Text>blah blah</Text>
 
       <Accordion allowToggle>
         <AccordionItem>
