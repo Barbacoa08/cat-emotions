@@ -6,6 +6,7 @@ import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
 import contemplative from "./contemplative.jpg";
+import crying from "./crying.jpg";
 import cuddly from "./cuddly.jpg";
 import curious from "./curious.jpg";
 import destructive from "./destructive-guilty-uncaring.jpg";
@@ -21,6 +22,8 @@ import playful from "./playful.jpg";
 import proud from "./proud.jpg";
 import rageful from "./rageful-angry-pissed-judgemental.jpg";
 import regal from "./regal-upset-proud.jpg";
+import sadThumbsUp from "./sad-thumbsup.jpg";
+import sad from "./sad.jpg";
 import sexy from "./sexy.jpg";
 import shocked2 from "./shocked-surprised-astonished.jpg";
 import shocked from "./shocked.jpg";
@@ -55,6 +58,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: contemplative,
     tags: ["contemplative"],
     alt: "image of a cat laying down by a window and looking out in a calm, contemplative way",
+  },
+  {
+    src: crying,
+    tags: ["sad", "crying"],
+    alt: "image of a kitten standing up with an extremely sad looking face",
   },
   {
     src: cuddly,
@@ -130,6 +138,16 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: regal,
     tags: ["regal", "upset", "proud", "unhappy"],
     alt: "close image of a cat's face with a regal and proud look on it's face, but also perhaps slightly unhappy or upset",
+  },
+  {
+    src: sadThumbsUp,
+    tags: ["sad", "crying", "perseverant"],
+    alt: "image of a cat with a sad face giving a thumbs up",
+  },
+  {
+    src: sad,
+    tags: ["sad", "crying"],
+    alt: "image of a cat's face that appears to be crying",
   },
   {
     src: sexy,
