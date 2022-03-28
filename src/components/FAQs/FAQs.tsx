@@ -10,7 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { InternalLink } from "components";
+import { ExternalLink, InternalLink } from "components";
 import { routes } from "navigation";
 
 export const FAQs = () => {
@@ -57,20 +57,22 @@ export const FAQs = () => {
               emotion? The "Why How" section is a place for you to express those
               thoughts (if you want to).
             </Text>
+
             <Text paddingBottom={2}>
               I don't actually store everything written down, instead I only
               store the "keywords" that you use (effectively the adjectives and
               verbs you use).
             </Text>
+
             <Text paddingBottom={2}>
               If you're currious exactly how I do that,{" "}
-              <InternalLink to="https://github.com/michaeldelorenzo/keyword-extractor">
+              <ExternalLink to="https://github.com/michaeldelorenzo/keyword-extractor">
                 I use this library
-              </InternalLink>
+              </ExternalLink>
               .{" "}
-              <InternalLink to="https://github.com/Barbacoa08/cat-emotions">
+              <ExternalLink to="https://github.com/Barbacoa08/cat-emotions">
                 And this is a link
-              </InternalLink>{" "}
+              </ExternalLink>{" "}
               to my source code for how I use that library.
             </Text>
           </AccordionPanel>
