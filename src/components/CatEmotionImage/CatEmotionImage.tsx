@@ -103,7 +103,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               {alt}
             </Text>
 
-            <FormControl p={2} isInvalid={selectedTagOptions.length === 0}>
+            <FormControl isInvalid={selectedTagOptions.length === 0}>
               <FormLabel>Select/Create emotion</FormLabel>
 
               {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
