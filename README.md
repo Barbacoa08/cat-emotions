@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Cat Emotions
 
-A tracker for your emotional journey via cat pics! [View it in action here](https://cat-emotions.netlify.app/)
+A tracker for your emotional journey via cat pics! [View it in action here](https://cat-emotions.app/)
 
 ## dev stuff
 
@@ -20,7 +20,7 @@ A tracker for your emotional journey via cat pics! [View it in action here](http
 
 `yarn test`: run all tests
 
-`yarn test:coverage` run all unit tests and get a code coverage report on it
+`yarn test:badges` run all unit tests, get a code coverage report, and output badges with the udpated information
 
 `yarn lint`: linting
 
