@@ -81,7 +81,7 @@ export const allCatImages: CatEmotionImageProps[] = [
   },
   {
     src: fake,
-    tags: ["fake", "eccedentesiast"],
+    tags: ["fake", "eccedentesiast", "unimpressed"],
     alt: "image of a cat staring into the camera with a piece of paper covering it's mouth that has a drawn on smile",
   },
   {
@@ -151,7 +151,7 @@ export const allCatImages: CatEmotionImageProps[] = [
   },
   {
     src: sexy,
-    tags: ["sexy"],
+    tags: ["sexy", "relaxed"],
     alt: "image of a cat stretched out on it's back in a (funny) sexy pose",
   },
   {
@@ -206,7 +206,7 @@ export const allCatImages: CatEmotionImageProps[] = [
   },
   {
     src: unamused,
-    tags: ["unamused"],
+    tags: ["unamused", "dubious"],
     alt: "image of a cat whose face is mostly blank with eyes half closed as if to say, 'really?'",
   },
   {

@@ -28,7 +28,7 @@ export const TipMe = () => {
           <form
             action="https://www.paypal.com/donate"
             method="post"
-            target="_top"
+            target="_blank"
           >
             <input type="hidden" name="business" value="A93ZP7FUUJ6SC" />
             <input type="hidden" name="no_recurring" value="1" />
@@ -62,6 +62,7 @@ export const TipMe = () => {
             width={200}
             as="a"
             href="https://venmo.com/code?user_id=1532230992134144508"
+            target="_blank"
           >
             <Image src={venmoSvg} alt="venmo" />
           </Button>
@@ -72,6 +73,7 @@ export const TipMe = () => {
             padding={0}
             as="a"
             href="https://www.buymeacoffee.com/sabe12070S"
+            target="_blank"
           >
             <Image
               src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
