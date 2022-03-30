@@ -4,7 +4,6 @@
   "author": "Barbacoa08",
   "license": "MIT",
   "repository": "https://github.com/Barbacoa08/cat-emotions",
-  "homepage": "/home",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
