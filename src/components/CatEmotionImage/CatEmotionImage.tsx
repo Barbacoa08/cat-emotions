@@ -46,6 +46,7 @@ const stringToOption = (s: string): EmotionOption => ({
 });
 
 export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
+  const [authenticated] = useGlobal("authenticated");
   const [user] = useGlobal("user");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -106,48 +107,61 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
               {alt}
             </Text>
 
-            <FormControl isInvalid={selectedTagOptions.length === 0}>
-              <FormLabel>Select/Create emotion</FormLabel>
+            {authenticated ? (
+              <>
+                <FormControl isInvalid={selectedTagOptions.length === 0}>
+                  <FormLabel>Select/Create emotion</FormLabel>
 
-              {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
-              <CreatableSelect<EmotionOption, true, GroupBase<EmotionOption>>
-                closeMenuOnSelect={false}
-                isMulti
-                name="emotion tags"
-                options={allTagOptions}
-                placeholder="Emotional tags"
-                value={selectedTagOptions}
-                onChange={(newSelected) =>
-                  setSelectedTagOptions(
-                    newSelected.map((o) => stringToOption(o.value))
-                  )
-                }
-              />
-
-              <FormErrorMessage>
-                You must select or create at least one tag
-              </FormErrorMessage>
-            </FormControl>
-
-            <FormControl>
-              <FormLabel>
-                Why How? (optional)
-                <Tooltip
-                  hasArrow
-                  label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
-                >
-                  <IconButton
-                    aria-label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
-                    icon={<QuestionIcon />}
-                    variant="ghost"
-                    as={NavLink}
-                    to={routes.faqsSections.whyHow.link}
+                  {/* TODO: this component is a touch buggy, and not accessibility friendly, should replace */}
+                  <CreatableSelect<
+                    EmotionOption,
+                    true,
+                    GroupBase<EmotionOption>
+                  >
+                    closeMenuOnSelect={false}
+                    isMulti
+                    name="emotion tags"
+                    options={allTagOptions}
+                    placeholder="Emotional tags"
+                    value={selectedTagOptions}
+                    onChange={(newSelected) =>
+                      setSelectedTagOptions(
+                        newSelected.map((o) => stringToOption(o.value))
+                      )
+                    }
                   />
-                </Tooltip>
-              </FormLabel>
 
-              <Textarea onChange={(e) => setWhy(e.target.value)} />
-            </FormControl>
+                  <FormErrorMessage>
+                    You must select or create at least one tag
+                  </FormErrorMessage>
+                </FormControl>
+
+                <FormControl>
+                  <FormLabel>
+                    Why How? (optional)
+                    <Tooltip
+                      hasArrow
+                      label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
+                    >
+                      <IconButton
+                        aria-label="Use this to describe any details on why you're feeling this way. Or how you've come to feel this way. For more information, click the Question Mark"
+                        icon={<QuestionIcon />}
+                        variant="ghost"
+                        as={NavLink}
+                        to={routes.faqsSections.whyHow.link}
+                      />
+                    </Tooltip>
+                  </FormLabel>
+
+                  <Textarea onChange={(e) => setWhy(e.target.value)} />
+                </FormControl>
+              </>
+            ) : (
+              <Box paddingTop={5} color="red" textAlign="right">
+                <Text>Ope! You're not signed in doncha know!</Text>
+                <Text>You'll need to sign in to save your Cat Emotion.</Text>
+              </Box>
+            )}
           </ModalBody>
 
           <ModalFooter>
@@ -160,7 +174,7 @@ export const CatEmotionImage = ({ alt, src, tags }: CatEmotionImageProps) => {
             </Button>
 
             <Button
-              disabled={selectedTagOptions.length === 0}
+              disabled={selectedTagOptions.length === 0 || !authenticated}
               variant="solid"
               onClick={() => {
                 onClose();
