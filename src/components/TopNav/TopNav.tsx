@@ -92,6 +92,7 @@ export const TopNav = () => {
 };
 
 const DesktopNav = () => {
+  const activeLinkColor = useColorModeValue("blue.800", "blue.200");
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
 
@@ -111,6 +112,10 @@ const DesktopNav = () => {
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
+                }}
+                _activeLink={{
+                  borderBottom: "2px solid",
+                  color: activeLinkColor,
                 }}
               >
                 {navItem.label}
