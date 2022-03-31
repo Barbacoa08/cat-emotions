@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import netlifyIdentity from "netlify-identity-widget";
 import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { setGlobal, StrictMode } from "reactn";
 
@@ -20,15 +21,16 @@ const globalDefaults: IGlobalState = {
 };
 setGlobal<IGlobalState>(globalDefaults);
 
-ReactDOM.render(
+// @ts-ignore
+const root = createRoot(document.getElementById("root"));
+root.render(
   <StrictMode>
     <ChakraProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ChakraProvider>
-  </StrictMode>,
-  document.getElementById("root")
+  </StrictMode>
 );
 
 if (process.env.NODE_ENV !== "production") {
