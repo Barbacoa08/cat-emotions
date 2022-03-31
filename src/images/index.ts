@@ -5,14 +5,23 @@ import { CatEmotionImageProps } from "components/CatEmotionImage";
 import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
+import chilly from "./chilly.jpg";
+import coldUnhappy from "./cold-unhappy.jpg";
 import contemplative from "./contemplative.jpg";
+import cozy from "./cozy.jpg";
 import crying from "./crying.jpg";
 import cuddly from "./cuddly.jpg";
 import curious from "./curious.jpg";
 import destructive from "./destructive-guilty-uncaring.jpg";
+import exasperatedConcerned from "./exasperated-concerned.jpg";
+import exasperatedTired from "./exasperated-tired.jpg";
+import exasperatedUpset from "./exasperated-upset.jpg";
+import exasperated from "./exasperated.jpg";
 import fake from "./fake.jpg";
 import grumpy from "./grumpy.jpg";
 import happy from "./happy.jpg";
+import industriousProductive from "./industrious-productive.jpg";
+import irritated from "./irritated.jpg";
 import incensed from "./incensed.jpg";
 import judgemental from "./judgemental.jpg";
 import mischievous from "./mischievous.jpg";
@@ -37,6 +46,7 @@ import suspicious from "./suspicious.jpg";
 import tense from "./tense.jpg";
 import unamused from "./unamused.jpg";
 import unimpressed from "./unimpressed.jpg";
+import wtfSurprised from "./wtf-surprised.jpg";
 
 export const allCatImages: CatEmotionImageProps[] = [
   {
@@ -55,9 +65,24 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat being gently chomped on by a large dog, the cat appears to not care",
   },
   {
+    src: chilly,
+    tags: ["chilly", "interested"],
+    alt: "image of a cat outside while it's snowing, the cat has a small amount of snow flakes on its body and a piqued-interested facial expression",
+  },
+  {
+    src: coldUnhappy,
+    tags: ["cold", "unhappy"],
+    alt: "image of a cat outside while it's snowing, the cat has a small amount of snow flakes on its body and appears to be unhappy",
+  },
+  {
     src: contemplative,
     tags: ["contemplative"],
     alt: "image of a cat laying down by a window and looking out in a calm, contemplative way",
+  },
+  {
+    src: cozy,
+    tags: ["cozy"],
+    alt: "image of a cat laying in front of a window with a mug in front of it with a scarf around it's neck looking very cozy",
   },
   {
     src: crying,
@@ -80,6 +105,26 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat sitting on a completely destroyed chair looking guilty and completely uncaring",
   },
   {
+    src: exasperatedConcerned,
+    tags: ["exasperated", "concerned"],
+    alt: "image of a cat laying on it's back with the camera looking down on it while the cat looks up and away from the camera with a 'are you done yet' eye rolling attitude",
+  },
+  {
+    src: exasperatedTired,
+    tags: ["exasperated", "tired"],
+    alt: "image of a parent and kitten playing together, the kitten looks extremely excited while the parent (the focus of the image) appears to be exhausted and exasperated with the kitten",
+  },
+  {
+    src: exasperatedUpset,
+    tags: ["exasperated", "upset"],
+    alt: "image of a cat with it's whiskers turned down, it's eyes narrowed, and ears slightly down, appearing to be quite a bit upset and exasperated",
+  },
+  {
+    src: exasperated,
+    tags: ["exasperated"],
+    alt: "image of a cat staring wide eyed into the camera with an exasperated look on it's face",
+  },
+  {
     src: fake,
     tags: ["fake", "eccedentesiast", "unimpressed"],
     alt: "image of a cat staring into the camera with a piece of paper covering it's mouth that has a drawn on smile",
@@ -98,6 +143,16 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: incensed,
     tags: ["incensed", "angry", "frustrated"],
     alt: "image of a cat sitting straight up with it's ears pulled back and a incensed face",
+  },
+  {
+    src: industriousProductive,
+    tags: ["industrious", "productive"],
+    alt: "image of a cat sitting at a tiny desk and appearing to work on a laptop, the cat even has it's paws on the mouse and laptop keyboard",
+  },
+  {
+    src: irritated,
+    tags: ["irritated"],
+    alt: "image of a cats face staring straight at the camera with eyes narrowed and looking particularly irritated",
   },
   {
     src: judgemental,
@@ -214,6 +269,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     tags: ["unimpressed"],
     alt: "image of a cat laying down on a pillow with it's front paws crossed over each other and a, very, unimpressed expression on it's face",
   },
+  {
+    src: wtfSurprised,
+    tags: ["wtf", "surprised", "confused"],
+    alt: "image of a cat with it's eyes wide open and a wtf expression on it's face, as it looks at the camera",
+  }
 ];
 
 export const allTags = Array.from(
