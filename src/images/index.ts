@@ -5,6 +5,7 @@ import { CatEmotionImageProps } from "components/CatEmotionImage";
 import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
+import blerg from "./blerg.jpg";
 import chilly from "./chilly.jpg";
 import coldUnhappy from "./cold-unhappy.jpg";
 import contemplative from "./contemplative.jpg";
@@ -40,7 +41,9 @@ import sick from "./sick.jpg";
 import sickGrumpy from "./sick-grumpy.jpg";
 import sleepy2 from "./sleepy-2.jpg";
 import sleepy from "./sleepy.jpg";
+import sleepyFierceYawn from "./sleepy-fierce-yawn.jpg";
 import surprised from "./surprised.jpg";
+import surprisedAlt from "./surprised-alt.jpg";
 import surprisedGuilty from "./surprised-guilty.jpg";
 import suspicious from "./suspicious.jpg";
 import tense from "./tense.jpg";
@@ -63,6 +66,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: beingEaten,
     tags: ["annoyed", "apathetic"],
     alt: "image of a cat being gently chomped on by a large dog, the cat appears to not care",
+  },
+  {
+    src: blerg,
+    tags: ["blerg", "blah", "tired", "apathetic"],
+    alt: "image of a cat laying down with an apathetic look on its face",
   },
   {
     src: chilly,
@@ -240,9 +248,19 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat yawning",
   },
   {
+    src: sleepyFierceYawn,
+    tags: ["sleepy", "fierce", "yawn"],
+    alt: "close up image of a cat yawning, with some particularly long looking fangs",
+  },
+  {
     src: surprised,
     tags: ["surprised"],
     alt: "image of a cat with both paws up and looking very surprised at the camera",
+  },
+  {
+    src: surprisedAlt,
+    tags: ["surprised", "alert"],
+    alt: "image of a cat laying on it's back on a carpet looking up at the camera with ears perked",
   },
   {
     src: surprisedGuilty,
