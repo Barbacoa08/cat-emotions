@@ -93,7 +93,7 @@ export const EmotionSelect = () => {
 
         <GridItem>
           <CatEmotionImage
-            alt="if you can't find a cat that represents your current feels, you can click here to add your own"
+            alt="if you can't find a cat that represents your current feels, you can still add your feels here"
             src={addYourOwn}
             tags={[]}
           />
