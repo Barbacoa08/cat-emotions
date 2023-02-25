@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Cat Emotions
 
-A tracker for your emotional journey via cat pics! [View it in action here](https://cat-emotions.app/)
+A tracker for your emotional journey via cat pics! [View it in action here](https://cat-emotions.barbajoe.tech/)
 
 ## dev stuff
 
