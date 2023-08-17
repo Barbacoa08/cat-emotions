@@ -11,6 +11,7 @@ import chilly from "./chilly.jpg";
 import coldUnhappy from "./cold-unhappy.jpg";
 import confusedAngryExasperated from "./confused-angry-exasperated.jpg";
 import contemplative from "./contemplative.jpg";
+import contentHappySleepyWarm from "./content-happy-sleepy-warm.jpg";
 import cozy from "./cozy.jpg";
 import crying from "./crying.jpg";
 import cuddly from "./cuddly.jpg";
@@ -21,6 +22,8 @@ import exasperatedTired from "./exasperated-tired.jpg";
 import exasperatedUpset from "./exasperated-upset.jpg";
 import exasperated from "./exasperated.jpg";
 import fake from "./fake.jpg";
+import goofyHappySilly from "./goofy-happy-silly.jpg";
+import gorgeousBeautiful from "./gorgeous-beautiful.jpg";
 import grumpy from "./grumpy.jpg";
 import happy from "./happy.jpg";
 import incensed from "./incensed.jpg";
@@ -29,7 +32,9 @@ import irritated from "./irritated.jpg";
 import judgemental from "./judgemental.jpg";
 import mischievous from "./mischievous.jpg";
 import needyPleadingYearnful from "./needy-pleading-yearnful.jpg";
+import netflixChillComfy from "./netflix-chill-comfy.jpg";
 import obstinate from "./obstinate.jpg";
+import playfulMischevious from "./playful-mischevious.jpg";
 import playful from "./playful.jpg";
 import proud from "./proud.jpg";
 import rageful from "./rageful-angry-pissed-judgemental.jpg";
@@ -102,6 +107,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat laying down by a window and looking out in a calm, contemplative way",
   },
   {
+    src: contentHappySleepyWarm,
+    tags: ["content", "happy", "sleepy", "warm"],
+    alt: "image of a cat sleeping in a cat hammock",
+  },
+  {
     src: cozy,
     tags: ["cozy"],
     alt: "image of a cat laying in front of a window with a mug in front of it with a scarf around it's neck looking very cozy",
@@ -152,6 +162,16 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat staring into the camera with a piece of paper covering it's mouth that has a drawn on smile",
   },
   {
+    src: goofyHappySilly,
+    tags: ["goofy", "happy", "silly"],
+    alt: "image of a cat laying upside down and half outside of a cat hammock with it's legs sticking straigh up in the air",
+  },
+  {
+    src: gorgeousBeautiful,
+    tags: ["gorgeous", "beautiful"],
+    alt: "image of a cat mostly white cat with a long poofy tail sitting pleasantly for the camera",
+  },
+  {
     src: grumpy,
     tags: ["grumpy", "irritated"],
     alt: "image of grumpy cat",
@@ -192,9 +212,19 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat reaching up a person's leg with a pleading look on it's face to be picked up",
   },
   {
+    src: netflixChillComfy,
+    tags: ["netflix", "chill", "comfy"],
+    alt: "image of a small cat sitting in a large chair and mostly enveloped by a large blanket, the cat is staring at a TV that is not visible",
+  },
+  {
     src: obstinate,
     tags: ["obstinate", "playful"],
     alt: "image of a cat with it's ears perked up, eyes narrowed, and sticking it's tongue out",
+  },
+  {
+    src: playfulMischevious,
+    tags: ["playful", "mischevious"],
+    alt: "image of a cat laying mostly under a laptop holder with it's head poking out",
   },
   {
     src: playful,
