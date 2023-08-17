@@ -6,8 +6,10 @@ import anxious from "./anxious.jpg";
 import atPeace from "./at-peace.jpg";
 import beingEaten from "./being-eaten.jpg";
 import blerg from "./blerg.jpg";
+import burntOutDesperate from "./burnt-out-desperate-stressed-confused.jpg";
 import chilly from "./chilly.jpg";
 import coldUnhappy from "./cold-unhappy.jpg";
+import confusedAngryExasperated from "./confused-angry-exasperated.jpg";
 import contemplative from "./contemplative.jpg";
 import cozy from "./cozy.jpg";
 import crying from "./crying.jpg";
@@ -21,9 +23,9 @@ import exasperated from "./exasperated.jpg";
 import fake from "./fake.jpg";
 import grumpy from "./grumpy.jpg";
 import happy from "./happy.jpg";
+import incensed from "./incensed.jpg";
 import industriousProductive from "./industrious-productive.jpg";
 import irritated from "./irritated.jpg";
-import incensed from "./incensed.jpg";
 import judgemental from "./judgemental.jpg";
 import mischievous from "./mischievous.jpg";
 import needyPleadingYearnful from "./needy-pleading-yearnful.jpg";
@@ -37,16 +39,18 @@ import sad from "./sad.jpg";
 import sexy from "./sexy.jpg";
 import shocked2 from "./shocked-surprised-astonished.jpg";
 import shocked from "./shocked.jpg";
-import sick from "./sick.jpg";
+import shriekingScreaming from "./shrieking-screaming.jpg";
 import sickGrumpy from "./sick-grumpy.jpg";
+import sick from "./sick.jpg";
 import sleepy2 from "./sleepy-2.jpg";
-import sleepy from "./sleepy.jpg";
 import sleepyFierceYawn from "./sleepy-fierce-yawn.jpg";
-import surprised from "./surprised.jpg";
+import sleepy from "./sleepy.jpg";
 import surprisedAlt from "./surprised-alt.jpg";
 import surprisedGuilty from "./surprised-guilty.jpg";
+import surprised from "./surprised.jpg";
 import suspicious from "./suspicious.jpg";
 import tense from "./tense.jpg";
+import tiredCrankyUpsetFrownAnnoyed from "./tired-cranky-upset-frown-annoyed.jpg";
 import unamused from "./unamused.jpg";
 import unimpressed from "./unimpressed.jpg";
 import wtfSurprised from "./wtf-surprised.jpg";
@@ -73,6 +77,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat laying down with an apathetic look on its face",
   },
   {
+    src: burntOutDesperate,
+    tags: ["burnt-out", "desperate", "stressed", "confused"],
+    alt: "image of a cat with it's fur mostly matted down with one eye half closed and one ear folded back looking at the camera",
+  },
+  {
     src: chilly,
     tags: ["chilly", "interested"],
     alt: "image of a cat outside while it's snowing, the cat has a small amount of snow flakes on its body and a piqued-interested facial expression",
@@ -81,6 +90,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: coldUnhappy,
     tags: ["cold", "unhappy"],
     alt: "image of a cat outside while it's snowing, the cat has a small amount of snow flakes on its body and appears to be unhappy",
+  },
+  {
+    src: confusedAngryExasperated,
+    tags: ["confused", "angry", "exasperated"],
+    alt: "image of a cat with it's ears pinned back and eyes narrowed with it's mouth partially open looking confused and angry",
   },
   {
     src: contemplative,
@@ -228,6 +242,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     alt: "image of a cat with wide open eyes and mouth agape with it's tongue slightly out, as if something shocked it as it was about to clean itself",
   },
   {
+    src: shriekingScreaming,
+    tags: ["shrieking", "screaming"],
+    alt: "image of a cat sitting down in the grass with it's mouth wide open and screaming",
+  },
+  {
     src: sick,
     tags: ["sick", "pain"],
     alt: "image of a cat sleeping on it's back with a paw on it's face, the other paw holding a thermometer, and a cold compress on it's head",
@@ -276,6 +295,11 @@ export const allCatImages: CatEmotionImageProps[] = [
     src: tense,
     tags: ["tense"],
     alt: "image of a cat that is partially crouched and focused, appearing as if it is ready to pounce",
+  },
+  {
+    src: tiredCrankyUpsetFrownAnnoyed,
+    tags: ["tired", "cranky", "upset", "frown", "annoyed"],
+    alt: "image of a cat sitting on a bed with it's eyes narrowed looking like it has just woken up and is NOT happy about it",
   },
   {
     src: unamused,
