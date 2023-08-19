@@ -1649,6 +1649,13 @@
   dependencies:
     "@chakra-ui/utils" "1.10.4"
 
+"@cronitorio/cronitor-rum@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@cronitorio/cronitor-rum/-/cronitor-rum-0.4.0.tgz#2757a01879a249207bf1bc25666e63b025106494"
+  integrity sha512-8LZHg6UyTQMJHTPIlAMAHdf1+5jQ2f4K/QMmskYdxTRvPNEy2mlq17v8o/IFhjAWN3ocdZROHCSqXq1NEJGJsA==
+  dependencies:
+    web-vitals "^3.3.0"
+
 "@csstools/normalize.css@*":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-12.0.0.tgz#a9583a75c3f150667771f30b60d9f059473e62c4"
@@ -9661,6 +9668,11 @@ web-vitals@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-2.1.4.tgz#76563175a475a5e835264d373704f9dde718290c"
   integrity sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==
+
+web-vitals@^3.3.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-3.4.0.tgz#45ed33a3a2e029dc38d36547eb5d71d1c7e2552d"
+  integrity sha512-n9fZ5/bG1oeDkyxLWyep0eahrNcPDF6bFqoyispt7xkW0xhDzpUBTgyDKqWDi1twT0MgH4HvvqzpUyh0ZxZV4A==
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
