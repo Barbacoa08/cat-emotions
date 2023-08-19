@@ -46,7 +46,6 @@
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.7",
     "@chakra-ui/skip-nav": "^1.2.6",
-    "@cronitorio/cronitor-rum": "0.4.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "chakra-react-select": "^3.1.2",

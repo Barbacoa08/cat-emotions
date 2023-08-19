@@ -2,14 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/icons8-pixel-cat-ios-glyph-30-white.png" />
+    <link
+      rel="icon"
+      href="%PUBLIC_URL%/icons8-pixel-cat-ios-glyph-30-white.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="This app allows you to select an emotion via a cat image and track those selections over time"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons8-pixel-cat-ios-glyph-30-white.png" />
+    <script async src="https://rum.cronitor.io/script.js"></script>
+    <script>
+      window.cronitor =
+        window.cronitor ||
+        function () {
+          (window.cronitor.q = window.cronitor.q || []).push(arguments);
+        };
+      cronitor("config", { clientKey: "f9de2e1cc0b37a02867805b3bbb5d01f" });
+    </script>
+
+    <link
+      rel="apple-touch-icon"
+      href="%PUBLIC_URL%/icons8-pixel-cat-ios-glyph-30-white.png"
+    />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
